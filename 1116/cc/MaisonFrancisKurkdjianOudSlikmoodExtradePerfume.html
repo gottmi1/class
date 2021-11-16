@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    section{
+      width: 100vw;
+      height: 100vh;
+      display: grid;
+      grid-column: 2;
+      grid-row: 2;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+
+    div{width: 10vw; height: 10vh; transition: 1000ms;}
+    
+    .wihe50{width: 50vw; height: 50vh;}
+    .ma-top{margin-top: 40vh;}
+    .bord-rad{border-radius: 0  100% 0 0;}
+    #one{background-color: antiquewhite; border-radius: 100% 0 0 0; margin-left: 40vw; margin-top: 40vh;}
+    #two{background-color: aquamarine;}
+    #three{margin-left: 40vw; background-color: burlywood; border-radius:  0 0 0 100%;}
+    #four{background-color: cadetblue; border-radius:  0 0  100% 0;}
+  </style>
+</head>
+<body>
+  
+  <section>
+    <div id="one"></div>
+    <div id="two" class="ma-top bord-rad"></div>
+    <div id="three"></div>
+    <div id="four"></div>
+  </section>
+
+  <script>
+
+    const $one = document.querySelector('#one');
+    const $two = document.querySelector('#two');
+    const $three = document.querySelector('#three');
+    const $four = document.querySelector('#four');
+    const $div = document.querySelectorAll('div');
+
+    console.log($div);
+
+    const change = function() {
+      for ( let i = 0; i<4; i++) {
+        $div[i].style.background = "black";
+      }
+      // $one.style.background = "red";
+      // $two.style.background = "red";
+      // $three.style.background = "red";
+      // $four.style.background = "red";
+    }
+    const before = () => {
+      $one.style.background = "antiquewhite";
+      $two.style.background = "aquamarine";
+      $three.style.background = "burlywood";
+      $four.style.background = "cadetblue";
+    }
+
+
+    for(let i = 0; i < 4; i++) {
+      $div[i].addEventListener('mouseover' , change);
+      $div[i].addEventListener('mouseout', before);
+    }
+
+    const clickEvent = () => {
+      let flag = true;
+      if(flag) {
+        $two.classList.toggle('ma-top');
+        $two.classList.toggle('bord-rad');
+        $two.classList.toggle('wihe50')
+        $two.style.background = "aquamarine";
+        // flag = false; 
+        for(let i = 0; i <4; i++) {
+        $div[i].removeEventListener('mouseover' , change);
+      }
+        console.log(flag); 
+    }
+      // } else if(!flag) {
+      //   $two.classList.add('ma-top');
+      //   $two.classList.add('bord-rad');
+      //   $two.classList.remove('wihe50');
+      // for(let i = 0; i <4; i++) {
+      //   $div[i].addEventListener('mouseover' , change);
+      // }
+      //   flag = true;
+      // }
+
+      // ---------------------------------------------------------------remove와 add를 사용한 else if로 돌아오게 하고 싶었는데 불가능했습니다 왜 안될까요???????????????????????????????????????????????????
+    } 
+
+    $two.addEventListener('click', clickEvent);
+
+  </script>
+</body>
+</html>
