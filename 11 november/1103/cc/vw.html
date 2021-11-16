@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<style>
+
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		body{
+			width: 100vw;
+			background-color: azure;
+		}
+
+		div:nth-child(1){
+			background-color: coral;
+			width: 50%;
+			height: 100%;
+			position: absolute;
+		}
+
+		div:nth-child(2){
+			background-color: beige;
+			width: 50%;
+			left: 50%;
+			height: 100%;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+
+		<div></div>
+		<div></div>
+	
+	<script>
+		// // ★★★★★★★★★★★★★★★ 객체를 추적 : 값을 도출
+		// console.dir(document.body.clientWidth);
+		// // ★★★★★★★★★★★★★★★ 객체를 백틱(템플릿문자열)으로 변수에 삽입 ${}을 이용해
+		// const as = `${document.body.clientWidth} : 이 값은 여러분들이 보고계신 브라우저의 너비입니다.`;
+		// document.write(as);
+		const cliValue = document.body.clientWidth;
+		console.log(cliValue)
+		const diva = document.querySelector('div:nth-child(1)');
+		const divb = document.querySelector('div:nth-child(2)');
+
+		//  window.addEventListener('load' , (event)=>{
+		//  	if(cliValue < 500){
+		//  		diva.innerText("폭이 너무 좁아");
+		//  	} else {
+		//  		document.write("넓음");
+		//  	}
+		//  })
+		 	
+		// 	const divb = document.querySelector('div:nth-child(2)');
+
+		// 	console.log(cliValue);
+		addEventListener
+		if(cliValue < 1600){
+			divb.style.display ="none";	
+		} if(cliValue < 1200) {
+			diva.style.display = "none";
+			divb.style.display = "none";
+		}
+
+
+	</script>
+
+	<!-- 
+		예제들을 이용해 만들어본 것
+	 -->
+
+</body>
+</html>

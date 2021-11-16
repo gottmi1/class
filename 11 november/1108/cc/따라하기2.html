@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  
+  <div class="imgslide">
+    <a href=""><img src="" alt=""><span class="imagetext">연꽃마을 축제1</span></img></a>
+    <a href=""><img src="" alt=""><span class="imagetext">연꽃마을 축제2</span></img></a>
+    <a href=""><img src="" alt=""><span class="imagetext">연꽃마을 축제3</span></img></a>
+  </div>
+
+  <script>
+    // $('.imgslide a:gt(0)').hide();
+    // setInterval(function() {
+    //   $('.imgslide a:first-child').fadeOut()
+    //   .next('a').fadeIn()
+    //   .end().appendTo('.imgslide');
+    // }, 3000);
+
+    function clickHandle(eventClass) {
+  const element = document.getElementsByClassName(eventClass);
+  // fade function call
+  fade(element);
+}
+
+function fade(element) {
+  let opacityValue = 1; // initial setting
+  const timer = setInterval(function () {
+    if (opacityValue <= 0.1) {
+      clearInterval(timer);
+      element.style.display = 'none';
+    }
+    // 구체적인 값 핸들링
+    element.style.opacity = opacityValue;
+    element.style.filter = `alpha(opacity= ${opacityValue} * 100)`;
+    // 주요 알고리즘
+    opacityValue -= opacityValue * 0.1;
+  }, 50);
+}
+  </script>
+
+
+</body>
+</html>

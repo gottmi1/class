@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>array</title>
+</head>
+
+<body>
+  <!-- markup ************************************** -->
+  <ul></ul>
+  <!-- markup ************************************** -->
+  <script>
+    // array literal declaration 
+    const liArr = [];
+    liArr.push('피카츄');
+    liArr.push('라이츄');
+    liArr.push('파이리');
+    liArr.push('꼬부기');
+    liArr.push('버터풀');
+    liArr.push('야도란');
+    liArr.push('피존투');
+    liArr.push('또가스');
+    // for() loop function
+
+    for (let i = 0; i < liArr.length; i++) {
+      const ul = document.querySelector('ul');
+      const li = document.createElement('li');
+      // li라는 요소를 만들어 줌
+      const textNode = document.createTextNode(liArr[i]);
+      // textNode 라는 변수에 textNode(배열의 i값에 해당하는 요소)를 만들어줌
+      ul.appendChild(li);
+      //ul에 자식으로 변수li를 만들어줌
+      li.appendChild(textNode);
+      // li안에 변수 textNode를 만릉저무
+    };
+    // ***************************************************
+
+    const ulTag = document.querySelector('ul');
+    ulTag.addEventListener('click', (event) => {
+      const eventTarget = event.target;
+      eventTarget.style.fontSize = "2em";
+      // 클릭시 현재 타겟(클릭된 놈)폰트사이즈를 2em으로 늘린다.
+      const nextTarget = eventTarget.nextSibling;
+      nextTarget.style.opacity = "0.5";
+      const previousTarget = eventTarget.previousSibling;
+      previousTarget.style.opacity = "0.5";
+      // eventTarget 설정으로 nextSibling과 previousSibling의 opacity를 .5로 만든다.
+    });
+
+  </script>
+</body>
+
+</html>
