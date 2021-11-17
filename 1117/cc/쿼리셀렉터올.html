@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+  </ul>
+
+  <script>
+
+    const con = document.querySelector('ul');
+    console.log(con.children[1]);
+    const items = document.querySelectorAll('li');
+    console.log(items[1]);
+
+    let index = 0;
+    const timer = setInterval( () => {
+      items[index].style.background = "aqua";
+      items[index].style.height = "10vh";
+      index += 1;
+      if (index === 5) {
+        clearInterval(timer);
+      }
+    },500);
+
+
+    con.addEventListener('click', (evt) => {
+      evt.target.style.color = "red";
+      evt.target.style.background = "black";
+    })
+  </script>
+</body>
+</html>

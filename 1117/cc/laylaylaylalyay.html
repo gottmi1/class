@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+
+    *{
+      padding: 0; margin: 0; box-sizing: border-box;
+    }
+    li{list-style: none;}
+    .opa-0{opacity: 0;}
+    .wid-5{width: 5vw;}
+    .wid-15{width: 15vw;}
+
+    .bgco-r{background-color: rosybrown;}
+    .bgco-b{background-color: seashell;}
+
+    #navi{
+      height: 100vh;
+      padding-top: 20vh;
+      padding-left: 3vw;
+      transition: 500ms;
+    }
+
+    #navi li{margin-top: 10vh; transition: 1000ms; border: 1px solid black; padding: 20px; width: 10vw; cursor: pointer; font-size: .5rem;}
+
+    #con{
+      width: 25vw;
+      height: 40vh;
+      background-color: springgreen;
+      position: absolute;
+      top: 20vh;
+      left: 40vw;
+      transition: 1000ms;
+    }
+    #con2{
+      width: 25vw;
+      height: 40vh;
+      background-color: thistle;
+      position: absolute;
+      top: 20vh;
+      left: 40vw;
+      transition: 1000ms;
+    }
+    #con3{
+      width: 25vw;
+      height: 40vh;
+      background-color: aqua;
+      position: absolute;
+      top: 20vh;
+      left: 40vw;
+      transition: 1000ms;
+    }
+
+    #btn{
+      position: absolute;
+      left: 15vw;
+      top: 40vh;
+      padding: 1vw;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <nav id="navi" class="wid-5 bgco-r">
+    <ul id="ul" class="opa-0">
+      <li class="opa-0">sdgsdgsd</li>
+      <li class="opa-0">sdfgdsfg</li>
+      <li class="opa-0">fdgsdfhf</li>
+    </ul>
+  </nav>
+
+  <div id="con" class="opa-0"></div>
+  <div id="con2" class="opa-0"></div>
+  <div id="con3" class="opa-0"></div>
+  <button id="btn">버튼</button>
+
+  <script>
+
+    const $navi = document.querySelector('#navi');
+    const $btn = document.querySelector('#btn');
+    const $ul = document.querySelector('#ul');
+    const $li = document.querySelectorAll('li');
+    const $con = document.querySelectorAll('div');
+
+
+    console.log($con)
+    console.log($li);
+
+    const moveEvt1 = () => {
+      $navi.classList.toggle('wid-5');
+      $navi.classList.toggle('wid-15');
+      $ul.classList.toggle('opa-0');
+      $li[0].classList.toggle('opa-0');
+      $li[1].classList.toggle('opa-0');
+      $li[2].classList.toggle('opa-0');
+      
+
+      if ( $navi.classList.contains('bgco-r')) {
+        $navi.classList.replace('bgco-r' , 'bgco-b' );
+      } else if ($navi.classList.contains('bgco-b')) {
+        $navi.classList.replace('bgco-b' , 'bgco-r')
+      }
+    }
+
+    $btn.addEventListener('click', moveEvt1);
+
+    const moveEvt2 = () => {
+      $con[0].classList.toggle('opa-0')
+      $con[1].classList.add('opa-0')
+      $con[2].classList.add('opa-0')
+    }
+    const moveEvt3 = () => {
+      $con[1].classList.toggle('opa-0')
+      $con[0].classList.add('opa-0')
+      $con[2].classList.add('opa-0')
+    }
+    const moveEvt4 = () => {
+      $con[2].classList.toggle('opa-0')
+      $con[0].classList.add('opa-0')
+      $con[1].classList.add('opa-0')
+    }
+
+    $li[1].addEventListener('click' , moveEvt2);
+    $li[0].addEventListener('click' , moveEvt3);
+    $li[2].addEventListener('click' , moveEvt4);
+
+  </script>
+</body>
+</html>
