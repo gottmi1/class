@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    *{padding: 0; margin: 0; box-sizing: border-box;}
+    ul,ll{list-style: none;}
+    section{
+      width: auto;
+      height: 100vh;
+      padding-top: 30vh;
+    }
+
+    #slider{
+      width: 50vw;
+      height: 40vh;
+      margin-left: 25vw;
+    }
+
+    #slides{
+      width: 50vw;
+      height: 40vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #slides>li{
+      width: 50vw;
+      height: 40vh;
+      display: block;
+      position: absolute;
+      transition: 500ms;
+    }
+    #box1{
+      background-color: beige;
+      left: 0;
+    }
+    #box2{
+      background-color: aquamarine;
+      margin-left: 50vw;
+    }
+    #box3{
+      background-color: red;
+      margin-left: 100vw;
+    }
+    #box4{
+      background-color: black;
+      margin-left: 150vw;
+    }
+    #box5{
+      background-color: wheat;
+      margin-left: 200vw;
+    }
+    #slides>li>img{
+      width: 100%;
+    }
+
+    #dots{
+      width: 30vw;
+      height: 5vh;
+      position: absolute;
+      top:  74vh;
+      left: 25vw;
+      display: flex;
+      justify-content: center;
+    }
+
+    .dot{
+      border-radius: 100%;
+      width: .7vw;
+      height: 1.4vh;
+      background-color: black;
+      margin-left: 5vw;
+      position: absolute;
+    }
+    .dot:nth-child(2) {
+      margin-left: 10vw;
+    }
+    .dot:nth-child(3) {
+      margin-left: 15vw;
+    }
+    .dot:nth-child(4) {
+      margin-left: 20vw;
+    }
+    .dot:nth-child(5) {
+      margin-left: 25vw;
+    }
+
+  </style>
+</head>
+<body>
+  <section>  
+    <div id="slider">
+      <ul id="slides">
+        <li id="box1"><img src="img/silk1.jpg" alt=""></li>
+        <li id="box2"><img src="img/딥디크2.png" alt=""></li>
+        <li id="box3"><img src="img/떼르데르.jpg" alt=""></li>
+        <li id="box4"><img src="img/엔젤스셰어.jpg" alt=""></li>
+        <li id="box5"><img src="img/프말.jpg" alt=""></li>
+      </ul>
+    </div>
+
+  <ul id="dots">
+    <li class="dot"></li>
+    <li class="dot"></li>
+    <li class="dot"></li>
+    <li class="dot"></li>
+    <li class="dot"></li>
+  </ul>
+  </section>
+
+
+  <script>
+
+    const $dot = document.querySelectorAll('.dot');
+    const $box = document.querySelectorAll('#slides>li');
+
+    console.log($dot);
+    console.log($box);
+
+    const dotdot = () => {
+      for (let i = 0; i < 5; i++) {
+        // let vw = "vw";
+        // let numb = -50;
+        // $box[i].style.left = i * numb + vw;
+      }
+    }
+
+
+    // const dotEvent1 = () =>{
+    //   $box[0].style.left = "0vw";
+    //   $box[1].style.left = "0vw";
+    //   $box[2].style.left = "0vw";
+    //   $box[3].style.left = "0vw";
+    //   $box[4].style.left = "0vw";
+    // }
+
+    // const dotEvent2 = () =>{
+    //   $box[0].style.left = "-50vw";
+    //   $box[1].style.left = "-50vw";
+    //   $box[2].style.left = "-50vw";
+    //   $box[3].style.left = "-50vw";
+    //   $box[4].style.left = "-50vw";
+    // }
+    // const dotEvent3 = () =>{
+    //   $box[0].style.left = "-100vw";
+    //   $box[1].style.left = "-100vw";
+    //   $box[2].style.left = "-100vw";
+    //   $box[3].style.left = "-100vw";
+    //   $box[4].style.left = "-100vw";
+    // }
+    // const dotEvent4 = () =>{
+    //   $box[0].style.left = "-150vw";
+    //   $box[1].style.left = "-150vw";
+    //   $box[2].style.left = "-150vw";
+    //   $box[3].style.left = "-150vw";
+    //   $box[4].style.left = "-150vw";
+    // }
+    // const dotEvent5 = () =>{
+    //   $box[0].style.left = "-200vw";
+    //   $box[1].style.left = "-200vw";
+    //   $box[2].style.left = "-200vw";
+    //   $box[3].style.left = "-200vw";
+    //   $box[4].style.left = "-200vw";
+    // }
+
+    // const dotEvents = [dotEvent1,dotEvent2,dotEvent3,dotEvent4,dotEvent5];
+
+    // $dot[0].addEventListener('click', dotEvent1);
+    // $dot[1].addEventListener('click', dotEvent2);
+    // $dot[2].addEventListener('click', dotEvent3);
+    // $dot[3].addEventListener('click', dotEvent4);
+    // $dot[4].addEventListener('click', dotEvent5);
+
+    // for (let i = 0; i < 5; i++) {
+    //   $dot[i].addEventListener('click', dotEvents[i]);
+    // }
+
+    for (let i = 0; i < 5; i++) {
+      $dot[i].addEventListener('click', dotdot);
+    }
+
+  </script>
+</body>
+</html>

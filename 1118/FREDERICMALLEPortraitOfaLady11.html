@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    *{padding: 0; margin: 0; box-sizing: border-box;}
+    ul,ll{list-style: none;}
+    section{
+      width: auto;
+      height: 100vh;
+      padding-top: 30vh;
+    }
+
+    #slider{
+      width: 50vw;
+      height: 40vh;
+      margin-left: 25vw;
+    }
+
+    #slides{
+      width: 50vw;
+      height: 40vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #slides>li{
+      width: 50vw;
+      height: 40vh;
+      display: block;
+      position: absolute;
+      transition: 500ms;
+    }
+    #box1{
+      background-color: beige;
+      left: 0;
+    }
+    #box2{
+      background-color: aquamarine;
+      margin-left: 50vw;
+    }
+    #box3{
+      background-color: red;
+      margin-left: 100vw;
+    }
+    #box4{
+      background-color: black;
+      margin-left: 150vw;
+    }
+    #box5{
+      background-color: wheat;
+      margin-left: 200vw;
+    }
+    #slides>li>img{
+      width: 100%;
+    }
+
+    #dots{
+      width: 30vw;
+      height: 5vh;
+      position: absolute;
+      top:  74vh;
+      left: 25vw;
+      display: flex;
+      justify-content: center;
+    }
+
+    .dot{
+      border-radius: 100%;
+      width: .7vw;
+      height: 1.4vh;
+      background-color: black;
+      margin-left: 5vw;
+      position: absolute;
+    }
+
+    .active{
+      background-color: red;
+    }
+    .dot:nth-child(2) {
+      margin-left: 10vw;
+    }
+    .dot:nth-child(3) {
+      margin-left: 15vw;
+    }
+    .dot:nth-child(4) {
+      margin-left: 20vw;
+    }
+    .dot:nth-child(5) {
+      margin-left: 25vw;
+    }
+    
+    #rightArrow>div{
+      width: .5vw;
+      height: 5vh;
+      background-color: black;
+      position: absolute;
+      cursor: pointer;
+    }
+
+    #rightArrow>div:nth-child(1){
+      transform: rotate(135deg);
+      top: 46vh;
+      right: 15vw;
+      display: block;
+    }
+    #rightArrow>div:nth-child(2){
+      transform: rotate(-135deg);
+      bottom: 46vh;
+      right: 15vw;
+    }
+
+    #leftArrow>div{
+      width: .5vw;
+      height: 5vh;
+      background-color: black;
+      position: absolute;
+      cursor: pointer;
+    }
+
+    #leftArrow>div:nth-child(1){
+      transform: rotate(45deg);
+      top: 46vh;
+      left: 15vw;
+    }
+    #leftArrow>div:nth-child(2){
+      transform: rotate(-45deg);
+      bottom: 46vh;
+      left: 15vw;
+    }
+
+  </style>
+</head>
+<body>
+  <section>  
+    <div id="slider">
+      <ul id="slides">
+        <li id="box1"><img src="img/silk1.jpg" alt=""></li>
+        <li id="box2"><img src="img/딥디크2.png" alt=""></li>
+        <li id="box3"><img src="img/떼르데르.jpg" alt=""></li>
+        <li id="box4"><img src="img/엔젤스셰어.jpg" alt=""></li>
+        <li id="box5"><img src="img/프말.jpg" alt=""></li>
+      </ul>
+    </div>
+
+    <div id="rightArrow">
+      <div></div>
+      <div></div>
+    </div>
+
+    <div id="leftArrow">
+      <div></div>
+      <div></div>
+    </div>
+
+  <ul id="dots">
+    <li class="dot active"></li>
+    <li class="dot"></li>
+    <li class="dot"></li>
+    <li class="dot"></li>
+    <li class="dot"></li>
+  </ul>
+  </section>
+
+
+  <script>
+
+    const $dot = document.querySelectorAll('.dot');
+    const $box = document.querySelectorAll('#slides>li');
+
+    console.log($dot);
+    console.log($box);
+
+    // const dotdot = () => {
+    //   for (let i = 0; i < 5; i++) {
+    //     let vw = "vw";
+    //     let numb = -50;
+    //     $box[0].style.left = i * numb + vw;
+    //     $box[1].style.left = i * numb + vw;
+    //     $box[2].style.left = i * numb + vw;
+    //     $box[3].style.left = i * numb + vw;
+    //     $box[4].style.left = i * numb + vw;
+    //     console.log(i * numb + vw);
+    //   }
+    // }
+
+    let index = 0;
+
+
+    const dotEvent1 = (event) =>{
+      const current = "0vw";
+      event.currentTarget.classList.add('active');
+      event.noCurrent.classList.remove('active');
+      // !event.currentTarget.classList.remove('active');
+      for(let i = 0; i < 5; i++) {
+      $box[i].style.left = current;
+    }
+      index = 0;
+      // if (index === 0) {
+      //   $dot[index].classList.add('active');
+      //   $dot[1].classList.remove('active');
+      //   $dot[2].classList.remove('active');
+      //   $dot[3].classList.remove('active');
+      //   $dot[4].classList.remove('active');
+      // }
+    }
+
+
+    const dotEvent2 = () =>{
+      const current = "-50vw";
+      for(let i = 0; i < 5; i++) {
+      $box[i].style.left = current;
+    }
+      index = 1;
+      if (index === 1) {
+        $dot[index].classList.add('active');
+        $dot[0].classList.remove('active');
+        $dot[2].classList.remove('active');
+        $dot[3].classList.remove('active');
+        $dot[4].classList.remove('active');
+      }
+    }
+
+    const dotEvent3 = () =>{
+      const current = "-100vw";
+      for(let i = 0; i < 5; i++) {
+      $box[i].style.left = current;
+    }  
+      index = 2;
+      if (index === 2) {
+        $dot[index].classList.add('active');
+        $dot[0].classList.remove('active');
+        $dot[1].classList.remove('active');
+        $dot[3].classList.remove('active');
+        $dot[4].classList.remove('active');
+      }  
+    }
+
+    const dotEvent4 = () =>{
+      const current = "-150vw";
+      for(let i = 0; i < 5; i++) {
+      $box[i].style.left = current;
+    }  
+      index = 3;
+      if (index === 3) {
+        $dot[index].classList.add('active');
+        $dot[0].classList.remove('active');
+        $dot[1].classList.remove('active');
+        $dot[2].classList.remove('active');
+        $dot[4].classList.remove('active');
+      }   
+    }
+
+    const dotEvent5 = () =>{
+      const current = "-200vw";
+      for(let i = 0; i < 5; i++) {
+      $box[i].style.left = current;
+    }
+      index = 4;
+      if (index === 4) {
+        $dot[index].classList.add('active');
+        $dot[0].classList.remove('active');
+        $dot[1].classList.remove('active');
+        $dot[2].classList.remove('active');
+        $dot[3].classList.remove('active');
+      }
+    }
+
+    const dotEvents = [dotEvent1,dotEvent2,dotEvent3,dotEvent4,dotEvent5];
+
+    // $dot[0].addEventListener('click', dotEvent1);
+    // $dot[1].addEventListener('click', dotEvent2);
+    // $dot[2].addEventListener('click', dotEvent3);
+    // $dot[3].addEventListener('click', dotEvent4);
+    // $dot[4].addEventListener('click', dotEvent5);
+
+    for (let i = 0; i < 5; i++) {
+      $dot[i].addEventListener('click', dotEvents[i]);
+    }
+
+    // for (let i = 0; i < 5; i++) {
+    //   $dot[i].addEventListener('click', dotdot);
+    // }
+
+  </script>
+</body>
+</html>
