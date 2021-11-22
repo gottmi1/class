@@ -18,6 +18,7 @@
     .zindex4{z-index: 4;}
     .zindex0{z-index: 0;}
     .zindex9{z-index: 9;}
+    .zindex-1{z-index: -1;}
 
     #wrap{
       width: 1000px;
@@ -50,6 +51,8 @@
       display: flex;
       flex-direction: column;
       justify-content: end;
+      position: relative;
+      z-index: 1000;
     }
 
     header #gnb li{
@@ -63,8 +66,9 @@
       height: 140px;
       background-color: darksalmon;
       position: absolute;
-      top: 260px;
-      left: 200px;
+      top: 200px;
+      left: 50px;
+      transition: 300ms;
     }
 
     header #sub1 li{
@@ -76,8 +80,9 @@
       height: 140px;
       background-color: blueviolet;
       position: absolute;
-      top: 260px;
-      left: 200px;
+      top: 230px;
+      left: 50px;
+      transition: 300ms;
     }
 
     header #sub2 li{
@@ -90,7 +95,8 @@
       background-color: steelblue;
       position: absolute;
       top: 260px;
-      left: 200px;
+      left: 50px;
+      transition: 300ms;
     }
 
     header #sub3 li{
@@ -172,17 +178,17 @@
         <li>menu3</li>
       </ul>
 
-      <ul id="sub1" class="dis-no zindex9">
+      <ul id="sub1" class="zindex-1">
         <li>menu1</li>
         <li>menu2</li>
       </ul>
 
-      <ul id="sub2" class="dis-no zindex9">
+      <ul id="sub2" class="zindex-1">
         <li>menu1</li>
         <li>menu2</li>
       </ul>
 
-      <ul id="sub3" class="dis-no zindex9">
+      <ul id="sub3" class="zindex-1">
         <li>menu1</li>
         <li>menu2</li>
       </ul>
@@ -232,23 +238,53 @@
     console.log($menu);
     console.log($sub);
 
-    $menu[0].addEventListener('click', ()=> {
-      $sub[1].classList.toggle('dis-no');
-      $sub[2].classList.add('dis-no');
-      $sub[3].classList.add('dis-no');
+    // $menu[0].addEventListener('click', ()=> {
+    //   $sub[1].classList.toggle('dis-no');
+    //   $sub[2].classList.add('dis-no');
+    //   $sub[3].classList.add('dis-no');
+    // })
+
+    $menu[0].addEventListener('mouseover', () => {
+      $sub[1].style.left = "150px";
+      $sub[1].classList.replace('zindex-1','zindex9');
     })
 
-    $menu[1].addEventListener('click', ()=> {
-      $sub[2].classList.toggle('dis-no');
-      $sub[1].classList.add('dis-no');
-      $sub[3].classList.add('dis-no');
+    $menu[0].addEventListener('mouseout', () => {
+      $sub[1].style.left = "50px";
+      $sub[1].classList.replace('zindex9','zindex-1');
     })
 
-    $menu[2].addEventListener('click', ()=> {
-      $sub[3].classList.toggle('dis-no');
-      $sub[2].classList.add('dis-no');
-      $sub[1].classList.add('dis-no');
+    $menu[1].addEventListener('mouseover', () => {
+      $sub[2].style.left = "150px";
+      $sub[2].classList.replace('zindex-1','zindex9');
     })
+
+    $menu[1].addEventListener('mouseout', () => {
+      $sub[2].style.left = "50px";
+      $sub[2].classList.replace('zindex9','zindex-1');
+    })
+
+    $menu[2].addEventListener('mouseover', () => {
+      $sub[3].style.left = "150px";
+      $sub[3].classList.replace('zindex-1','zindex9');
+    })
+
+    $menu[2].addEventListener('mouseout', () => {
+      $sub[3].style.left = "50px";
+      $sub[3].classList.replace('zindex9','zindex-1');
+    })
+
+    // $menu[1].addEventListener('click', ()=> {
+    //   $sub[2].classList.toggle('dis-no');
+    //   $sub[1].classList.add('dis-no');
+    //   $sub[3].classList.add('dis-no');
+    // })
+
+    // $menu[2].addEventListener('click', ()=> {
+    //   $sub[3].classList.toggle('dis-no');
+    //   $sub[2].classList.add('dis-no');
+    //   $sub[1].classList.add('dis-no');
+    // })
 
     // 1. menu 0~2까지 에드이벤트리스너를 추가 2.처음에는 1엔 토글 2,3에서 애드클래스 두번째는 2에 토글 1,3번째 애드클래스 세번쨰는 3에 토글 1,2번 애드클래스를 해야함
     // 비슷한 내용이지만 숫자가 다르고 섞이기때문에 한번에 줄일수가 없음
