@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    *{padding: 0; margin: 0; box-sizing: border-box;}
+    ul,li{list-style: none;}
+    .po-re{position: relative;}
+    .po-ab{position: absolute;}
+    .zindex4{z-index: 4;}
+    .zindex5{z-index: 5;}
+    .zindex-1{z-index: -1;}
+    .dis-no{display: none;}
+
+    #bigbox{
+      width: 1000px;
+      height: 650px;
+      margin: 0 auto;
+      background-color: crimson;
+      position: relative;
+    }
+
+    header{
+      width: 200px;
+      height: 100%;
+      background-color: cyan;
+    }
+
+    #logo{
+      background-color: darkseagreen;
+      width: 200px;
+      height: 150px;
+    }
+
+    #gnb{
+      position: absolute;
+      width: 100px;
+      height: 200px;
+      background-color: darkturquoise;
+      margin-left: 5%;
+      margin-top: 5%;
+      text-align: center;
+    }
+
+    #gnb>li{
+      height: 33%;
+      cursor: pointer;
+    }
+
+    #sub1{
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      background-color: dodgerblue;
+      left: 17%;
+      top: 39%;
+      transition: 500ms;
+      z-index: 555;
+    }
+
+    #sub2{
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      background-color: white;
+      left: 17%;
+      top: 39%;
+      transition: 500ms;
+      z-index: 555;
+    }
+
+    #sub3{
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      background-color: burlywood;
+      left: 17%;
+      top: 39%;
+      transition: 500ms;
+      z-index: 555;
+    }
+
+    section{
+      width: 800px;
+      height: 550px;
+      background-color: darkgray;
+      position: absolute;
+      top: 0;
+      left: 200px;
+    }
+
+    #slide{
+      width: 2400px;
+      height: 350px;
+    }
+
+    #slide div{
+      width: 800px;
+      height: 350px;
+      position: absolute;
+    }
+
+    #slide div:nth-child(1) {background-color: turquoise; z-index: 55;}
+    #slide div:nth-child(2) {background-color: tomato; z-index: 45;}
+    #slide div:nth-child(3) {background-color: springgreen; z-index: 35;}
+
+    #midbox{
+      background-color: darkred;
+      width: 100%;
+      height: 200px;
+      position: relative;
+    }
+    
+
+    #midbox div{
+      width: 33.33333333333%;
+      height: 100%;
+      float: left;
+      border: 1px solid black;
+      background-color: blanchedalmond;
+    }
+
+    #midbox div:nth-child(1){
+      position: absolute;
+      background-color: turquoise;
+    }
+
+    #btn1{
+      width: 50%;
+      float: left;
+      background-color: rebeccapurple;
+    }
+    #btn2{
+      float: right;
+      width: 50%;
+      background-color: sandybrown;
+    }
+
+    footer{
+      background-color: darkkhaki;
+      width: 800px;
+      height: 100px;
+      position: absolute;
+      top: 550px;
+      left: 0;
+    }
+
+    #footlogo{
+      background-color:chocolate;
+      width: 150px;
+      height: 100px;
+      float: left;
+    }
+
+    #txtbox1{
+      width: 650px;
+      height: 50%;
+
+      float: right;
+      background-color: blue;
+    }
+    #txtbox1{
+      width: 650px;
+      height: 50%;
+      float: right;
+      background-color: red;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="bigbox">
+    
+    <header>
+
+      <div id="logo"><a href=""><img src="" alt=""></a></div>
+
+        <ui id="gnb">menu
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+        </ui>
+
+        <ui id="sub1" class="dis-no">
+          <li>1</li>
+          <li>2</li>
+        </ui>
+
+        <ui id="sub2" class="dis-no">
+          <li>1</li>
+          <li>2</li>
+        </ui>
+
+        <ui id="sub3" class="dis-no">
+          <li>1</li>
+          <li>2</li>
+        </ui>
+
+    </header>
+
+    <section>
+
+      <div id="slide">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <div id="midbox">
+        <div id="tab1">
+          <button id="btn1">tab1</button>
+        </div>
+        <div id="tab2" class="po-re zindex4">
+          <button id="btn2">tab2</button>
+        </div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <footer>
+        <div id="footlogo"><a href=""><img src="" alt=""></a></div>
+
+        <div id="txtbox1"></div>
+        <div id="txtbox2"></div>
+      </footer>
+    </section>
+
+  </div>
+
+
+  <script>
+
+    const $slide = document.querySelector('#slide');
+    const $slideItem = document.querySelectorAll('#slide div');
+
+    const $menu = document.querySelectorAll('#gnb li');
+    const $subOne = document.querySelector('#sub1');
+    const $subTwo = document.querySelector('#sub2');
+    const $subThree = document.querySelector('#sub3');
+    console.log($menu);
+
+    $menu[0].addEventListener('click',() => {
+      $subOne.classList.toggle('dis-no');
+      console.log('adasd');
+    })
+
+    $menu[1].addEventListener('click',() => {
+      $subTwo.classList.toggle('dis-no');
+      console.log('adasd');
+    })
+
+    $menu[2].addEventListener('click',() => {
+      $subThree.classList.toggle('dis-no');
+      console.log('adasd');
+    })
+
+    const $tabTwo = document.querySelector('#tab1');
+    const $tabOne = document.querySelector('#tab2');
+    const $btnOne = document.querySelector('#btn1');
+    const $btnTwo = document.querySelector('#btn2');
+
+    $btnOne.addEventListener('click', () => {
+        $tabOne.classList.toggle('zindex4');
+        $tabTwo.classList.toggle('zindex4');
+      }
+    );
+
+    $btnTwo.addEventListener('click', () => {
+        $tabOne.classList.toggle('zindex4');
+        $tabTwo.classList.toggle('zindex4');
+      }
+    );
+
+
+    console.log($slideItem);
+
+    let index = 0;
+    setInterval(() => {
+      
+      if(index < $slideItem.length - 1) {
+        console.log(index);
+        $slideItem[index].style.left = "-1800px"
+        index += 1;
+        //index의 값이 2미만일 때 현재 인덱스값에 해당하는 #slide>div에 마진탑을 -350px 줘서 위로 올리고 index값에 1을 더함 
+      } else {
+        index = 0;
+
+        // $slideItem[index].style.marginTop = "0px"
+        // 사실 아래 for문이 있으면 이건 있으나 마나한 코드임
+        // 2를 넘으면 index값을 0으로 조정하고 $sildeItem[0]의 마진 탑을 0px로 바꾸는 건데 이러면 0번쨰 요소만 원래대로 돌아오고 1,2번째 요소는 반복을 계속함
+        // 요소가 적다면 $slideItme[1,2,3,4,5] 이런식으로 for문 없이 노가다도 할 수 있을듯
+
+        for (let i = 0; i < $slideItem.length; i++) {
+          $slideItem[i].style.left = '0px';
+        }
+        // 그렇기 떄문에 0부터 2까지의 모든 요소를 marginTop 0px인 초기상태로 되돌려 줌
+        console.log('처음으로');
+      }
+    }, 1500);
+
+  </script>
+</body>
+</html>

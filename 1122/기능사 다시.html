@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+
+    *{padding: 0; margin: 0; box-sizing: border-box;}
+    ul,li{
+      list-style: none;
+    }
+    .dis-no{display: none;}
+    .po-ab{position: absolute;}
+    .po-re{position: relative;}
+    .zindex4{z-index: 4;}
+    .zindex0{z-index: 0;}
+    .zindex9{z-index: 9;}
+
+    #wrap{
+      width: 1000px;
+      height: 650px;
+      background-color: coral;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    header{
+      width: 200px;
+      height: 650px;
+      background-color: cyan;
+      float: left;
+    }
+
+    header #logo{
+      width: 200px;
+      height: 150px;
+      background-color: darkolivegreen;
+    }
+
+    header #gnb{
+      margin-left: 50px;
+      margin-top: 50px;
+      width: 100px;
+      height: 200px;
+      background-color: darkorange;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+    }
+
+    header #gnb li{
+      height: 60px;
+      line-height: 60px;
+      cursor: pointer;
+    }
+
+    header #sub1{
+      width:  150px;
+      height: 140px;
+      background-color: darksalmon;
+      position: absolute;
+      top: 260px;
+      left: 200px;
+    }
+
+    header #sub1 li{
+      line-height: 70px;
+    }
+
+    header #sub2{
+      width:  150px;
+      height: 140px;
+      background-color: blueviolet;
+      position: absolute;
+      top: 260px;
+      left: 200px;
+    }
+
+    header #sub2 li{
+      line-height: 70px;
+    }
+
+    header #sub3{
+      width:  150px;
+      height: 140px;
+      background-color: steelblue;
+      position: absolute;
+      top: 260px;
+      left: 200px;
+    }
+
+    header #sub3 li{
+      line-height: 70px;
+    }
+
+    section{
+      width: 800px;
+      height: 650px;
+      background-color: darkgrey;
+      float: right;
+    }
+
+    #slider {
+      width: 800px;
+      height: 350px;
+      background-color: blanchedalmond;
+      overflow: hidden;
+    }
+
+    #slider div{
+      width: 800px;
+      height: 350px;
+      float: left;
+      transition: 500ms;
+    }
+
+    #slider div:nth-child(1){background-color: coral;}
+    #slider div:nth-child(2){background-color: cornflowerblue;}
+    #slider div:nth-child(3){background-color: cornsilk;}
+    #slider div:nth-child(4){background-color: crimson;}
+    #slider div:nth-child(5){background-color: darkblue;}
+
+    #midbox{
+      width: 800px;
+      height: 200px;
+      background-color: burlywood;
+    }
+
+    #midbox div{
+      background-color: darkgrey;
+      float: left;
+      width: 33.3333333333%;
+      height: 200px;
+    }
+    
+    #midbox div button{
+      width: 50%;
+    }
+
+    #btn1 {
+      float: left;
+    }
+
+    #btn2{
+      float: right;
+    }
+
+    footer{
+      width: 800px;
+      height: 100px;
+      background-color: chartreuse;
+    }
+
+
+  </style>
+</head>
+<body>
+  
+  <div id="wrap">
+
+    <header>
+
+      <div id="logo"><a href=""><img src="" alt=""></a></div>
+
+      <ul id="gnb"> <p>Menu</p>
+        <li>menu1</li>
+        <li>menu2</li>
+        <li>menu3</li>
+      </ul>
+
+      <ul id="sub1" class="dis-no zindex9">
+        <li>menu1</li>
+        <li>menu2</li>
+      </ul>
+
+      <ul id="sub2" class="dis-no zindex9">
+        <li>menu1</li>
+        <li>menu2</li>
+      </ul>
+
+      <ul id="sub3" class="dis-no zindex9">
+        <li>menu1</li>
+        <li>menu2</li>
+      </ul>
+
+
+    </header>
+
+    <section>
+
+      <div id="slider">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <div id="midbox" class="po-re">
+        <div id="tab1" class="po-re zindex4">
+          <button id="btn2">tab2</button>
+        </div>
+        <div id="tab2" class="po-ab zindex0">
+          <button id="btn1">tab1</button>
+        </div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <footer>
+
+
+      </footer>
+
+    </section>
+
+  </div>
+
+
+
+  <script>
+
+    const $slideItems = document.querySelectorAll('#slider div');
+    console.log($slideItems);
+
+    const $menu = document.querySelectorAll('#gnb li');
+    const $sub = document.querySelectorAll('header ul');
+    console.log($menu);
+    console.log($sub);
+
+    $menu[0].addEventListener('click', ()=> {
+      $sub[1].classList.toggle('dis-no');
+      $sub[2].classList.add('dis-no');
+      $sub[3].classList.add('dis-no');
+    })
+
+    $menu[1].addEventListener('click', ()=> {
+      $sub[2].classList.toggle('dis-no');
+      $sub[1].classList.add('dis-no');
+      $sub[3].classList.add('dis-no');
+    })
+
+    $menu[2].addEventListener('click', ()=> {
+      $sub[3].classList.toggle('dis-no');
+      $sub[2].classList.add('dis-no');
+      $sub[1].classList.add('dis-no');
+    })
+
+    // 1. menu 0~2까지 에드이벤트리스너를 추가 2.처음에는 1엔 토글 2,3에서 애드클래스 두번째는 2에 토글 1,3번째 애드클래스 세번쨰는 3에 토글 1,2번 애드클래스를 해야함
+    // 비슷한 내용이지만 숫자가 다르고 섞이기때문에 한번에 줄일수가 없음
+
+    const $tabOne = document.querySelector('#tab1');
+    const $tabTwo = document.querySelector('#tab2');
+    const $btnOne = document.querySelector('#btn1');
+    const $btnTwo = document.querySelector('#btn2');
+
+    $tabOne.style.background = 'darkmagenta';
+    $tabTwo.style.backgroundColor= "red";
+
+
+    $btnTwo.addEventListener('click', () => {
+      $tabOne.classList.replace('zindex4', 'zindex0');
+      $tabTwo.classList.replace('zindex0', 'zindex4');
+    })
+
+    $btnOne.addEventListener('click', () => {
+      $tabTwo.classList.replace('zindex4', 'zindex0');
+
+      $tabOne.classList.replace('zindex0', 'zindex4');
+    })
+    
+    let index = 0;
+    setInterval(() => {
+
+      if (index < $slideItems.length-1) {
+        $slideItems[index].style.marginTop = "-500px";
+        index += 1;
+        // index가 1씩 더해지며 해당요소의 마진탑을 -500px로 조정해줌 화면에서 안 보이는 곳에서 다 겹쳐져 있는 모양
+      } else { // 위의 조건을 벗어났을 때(index === $slideItems.length가 된 상황)
+        index = 0;
+        //index를 다시 0으로 되돌려주며(맨 위의 요소)
+        for(let i = 0; i < $slideItems.length; i++) {
+        $slideItems[i].style.marginTop = "0px";
+        } // 단순히 모든 요소를 원래의 모양대로 원상복구 시켜주는 코드
+      }
+    }, 1000);
+
+  </script>
+</body>
+</html>

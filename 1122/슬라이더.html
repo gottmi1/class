@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    * { padding : 0; margin:0; box-sizing: border-box;}
+
+    #slide {
+      height: 350px;
+      width: 500px;
+      border: 1px solid rosybrown;
+      /* overflow: hidden; */
+    }
+
+    #slide div{
+      float: left;
+      height: 350px;
+      width: 500px;
+      text-align: center;
+      line-height: 350px;
+    }
+
+    #slide div:nth-child(1) {background-color: sienna;}
+    #slide div:nth-child(2) {background-color: silver;}
+    #slide div:nth-child(3) {background-color: tan;}
+  </style>
+</head>
+<body>
+  
+  <div id="slide">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </div>
+
+  <!-- <script>
+
+    const $slide = document.querySelector('#slide');
+    const $slideItem = document.querySelectorAll('#slide div');
+
+    console.log($slideItem);
+
+    let index = 0;
+    setInterval(() => {
+      
+      if(index < $slideItem.length - 1) {
+        console.log(index);
+        $slideItem[index].style.marginTop = "-350px"
+        index += 1;
+        //index의 값이 2미만일 때 현재 인덱스값에 해당하는 #slide>div에 마진탑을 -350px 줘서 위로 올리고 index값에 1을 더함 
+      } else {
+        index = 0;
+        $slideItem[index].style.marginTop = "0px"
+        // 사실 아래 for문이 있으면 이건 있으나 마나한 코드임
+        // 2를 넘으면 index값을 0으로 조정하고 $sildeItem[0]의 마진 탑을 0px로 바꾸는 건데 이러면 0번쨰 요소만 원래대로 돌아오고 1,2번째 요소는 반복을 계속함
+        // 요소가 적다면 $slideItme[1,2,3,4,5] 이런식으로 for문 없이 노가다도 할 수 있을듯
+
+        for (let i = 0; i < $slideItem.length; i++) {
+          $slideItem[i].style.marginTop = '0px';
+        }
+        // 그렇기 떄문에 0부터 2까지의 모든 요소를 marginTop 0px인 초기상태로 되돌려 줌
+        console.log('처음으로');
+      }
+    }, 1000);
+
+  </script> -->
+
+</body>
+</html>

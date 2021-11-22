@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <button>asd</button>
+
+  <script>
+
+    const arr = ['박효신','나얼','미만잡'];
+    document.write(arr);
+    document.write(arr[0] + arr[1] + arr[2]);
+
+    const btn = document.querySelector('button');
+
+    let click = 0;
+    let index = 1;
+    btn.addEventListener('click' , () => {
+      if ( index < arr.length) {
+        console.log(arr[index-1]);
+        index += 1;
+      } else {
+        console.log(arr[index-1]);
+        index = 1;
+      }
+      click += 1;
+      console.log(click);
+    })
+
+    // setInterval(() => {
+    //   if ( index < arr.length) {
+    //   console.log(arr[index]);
+    //   index += 1;
+    //   } else {
+    //     index = 0;
+    //   }
+    // }, 50);
+
+  </script>
+
+</body>
+</html>

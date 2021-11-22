@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    *{padding: 0; margin: 0; box-sizing: border-box;}
+    ul,li{list-style: none;}
+    .po-re{position: relative;}
+
+    #wrap{
+      width: 1000px;
+      height: 650px;
+      margin: 0 auto;
+      background-color: aquamarine;
+      position:relative;
+    }
+
+    #wrap>header{position: absolute; width: 200px; height: 100%; background-color: brown; position: relative;}
+      
+    #logo{width: 200px; height: 150px; background-color: azure;}
+    #gnb{position: absolute; background-color: cadetblue; width: 130px; height: 200px; top: 40%; left: 5%; text-align: center;}
+    #gnb>li{height: 33%; line-height: 60px;}
+
+    section{background-color: coral; width: 500px; height: 550px; float: right;}
+
+    /* section>#imgbox{background-color: chartreuse; width: 800px; height: 350px; position: absolute; top: 0;} */
+
+  </style>
+</head>
+<body>
+  <div id="wrap">
+
+    <header>
+      <div id="logo"><a href=""><img src="" alt=""></a></div>
+
+        <ui id="gnb">menu
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+        </ui>
+
+        <ui id="sub">
+          <li>1</li>
+          <li>2</li>
+        </ui>
+
+        <section>
+
+          <div id="imgbox">
+          </div>
+    
+          <div id="mid" class="po-re">
+            <div id="tab1"></div>
+            <div id="tab2"></div>
+            <div id="left"></div>
+            <div id="right"></div>
+          </div>
+    
+        </section>
+
+        <footer>
+          <div id="footLogo"></div>
+          <div id="txtbox1"></div>
+          <div id="txtbox2"></div>
+        </footer>
+    </header>
+
+    
+
+
+
+  </div>
+</body>
+</html>
