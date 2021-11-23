@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button>click counter</button>
+  <script>
+    const btn = document.querySelector('button');
+    const arr = ['나는', '날개달린', '호랑이'];
+    // 숫자놀음으로 생각하고 있는 것
+
+    let howMuchClick = 0;
+    let idx = 0;
+    btn.addEventListener('click', function() {
+      howMuchClick += 1;
+      console.log(howMuchClick);
+      if(idx < arr.length) {
+        console.log(arr[idx]);
+        idx = idx + 1;
+      } else {
+        idx = 0;
+      }
+    });
+  </script>
+  
+</body>
+</html>

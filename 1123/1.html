@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    *{padding: 0; margin: 0; box-sizing: border-box;}
+
+    nav{
+      width: 100vw;
+      height: 10vh;
+      background-color: aquamarine;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    nav div{
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: darkcyan;
+      margin-left: 50px;
+      cursor: pointer;
+    }
+
+    header {
+      width: 100vw;
+      height: 20vh;
+      background-color: violet;
+      overflow: hidden;
+    }
+
+    main {
+      width: 100vw;
+      height: 70vh;
+      background-color: cornflowerblue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    main section{
+      width: 60vw;
+      height: 35vh;
+      background-color: darkmagenta;
+    }
+
+  </style>
+</head>
+<body>
+  
+  <nav>
+    <div></div>
+    <div></div>
+    <div></div>
+  </nav>
+
+  <header>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit soluta minima nostrum officia, adipisci temporibus reprehenderit unde cupiditate, possimus nemo harum vero ipsa non fuga ipsum quas beatae quisquam. Esse?
+    Aspernatur natus cupiditate sunt ad doloribus expedita neque dignissimos harum? Necessitatibus vel a voluptates assumenda quisquam. Unde velit aperiam commodi animi illum iste modi, neque possimus est nemo eligendi quisquam.
+    Beatae soluta ducimus tempore sint illo explicabo suscipit fugit consectetur mollitia repellat, quidem natus odit officia velit voluptatibus qui sequi veniam. Soluta, neque in saepe minus consequuntur quos esse excepturi.
+    Assumenda unde alias nesciunt necessitatibus consectetur ratione architecto nostrum accusantium vero aliquam autem, laudantium facere beatae dignissimos possimus nisi libero. Rem quo nesciunt quam sapiente autem voluptates repellat perspiciatis architecto?
+    Consectetur quae vitae, maxime voluptatum necessitatibus ab veritatis dicta, cumque veniam quod praesentium? Facere nulla dignissimos error esse accusantium, adipisci sapiente fuga odio corrupti rerum aut iste, quisquam dolorem molestias?
+  </header>
+
+  <main>
+
+    <section>
+
+    </section>
+
+  </main>
+
+  <script>
+
+    const $dot = document.querySelectorAll('nav div');
+    const $section = document.querySelector('main section');
+    const $header = document.querySelector('header');
+    console.log($dot);
+    const colorArr = ["red","blue","violet"];
+    const textArr = ["white","white","black"];
+    for (let i = 0; i < $dot.length; i++) {
+      $dot[i].addEventListener("click", () => {
+        $section.style.background = colorArr[i];
+        $header.style.background = colorArr[i];
+        $header.style.color = textArr[i];
+      })
+    }
+
+  </script>
+
+</body>
+</html>
