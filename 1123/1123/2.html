@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+
+  <style>
+    *{padding: 0; margin: 0; box-sizing: border-box;}
+
+    nav{
+      width: 100vw;
+      height: 10vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: darksalmon;
+      padding-left: 20vw;
+    }
+
+    nav div{
+      height: 60%;
+      width: 10vw;
+      background-color: darkturquoise;
+      text-align: center;
+      margin-right: 5vw;
+      cursor: pointer;
+    }
+
+    .ma-top5{margin-top: 5vh;}
+
+    section{
+      height: 90vh;
+      width: 100vw;
+      background-color: dimgray;
+      padding-top: 5vh;
+      padding-left: 45vw;
+
+    }
+
+    section div{
+      width: 10vw;
+      height: 5vh;
+      background-color: floralwhite;
+      text-align: center;
+    }
+
+
+  </style>
+
+</head>
+<body>
+  
+  <nav>
+    <div>Menu1</div>
+    <div>Menu2</div>
+  </nav>
+
+  <section>
+
+    <div>SUB</div>
+    <div class="ma-top5">SUB</div>
+    <div class="ma-top5">SUB</div>
+
+  </section>
+
+  
+  <script>
+
+    const $section = document.querySelector('section');
+    const $menu = document.querySelectorAll('nav div');
+    const $sub = document.querySelectorAll('section div');
+    console.log($menu);
+    console.log($section);
+    console.log($sub);
+
+    $menu[1].addEventListener('click' , () => {
+      $section.style.display = "flex";
+      $section.style.paddingLeft = "0";
+      $section.style.justifyContent = "space-around";
+      $section.style.alignItems = "center";
+      $sub[1].classList.remove('ma-top5');
+      $sub[2].classList.remove('ma-top5');
+    })
+
+    $menu[0].addEventListener('click' , () => {
+      $section.style.display = "";
+      $section.style.paddingLeft = "45vw";
+      $sub[1].classList.add('ma-top5');
+      $sub[2].classList.add('ma-top5');
+
+    })
+
+  </script>
+
+</body>
+</html>

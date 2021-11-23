@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    *{padding: 0; margin: 0; box-sizing: border-box;}
+    ul,li{list-style: none;}
+    .hidden{display: none;}
+
+    nav {width: 100vw; height: 10vh; background-color: darkorange; position: sticky; top: 0px; display: flex; justify-content: center; align-items: center;}
+
+    nav #dropBox{
+      width: 80vw;
+      height: 0vh;
+      background-color: fuchsia;
+      position: absolute;
+      top: 2.5vh;
+      z-index: -1;
+      transition: 500ms;
+    }
+
+    nav #gnb{
+      width: 80vw;
+      height: 50%;
+      background-color: darkturquoise;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    nav #gnb li{
+      width: 10%;
+      height: 100%;
+      text-align: center;
+      line-height: 5vh;
+      cursor: pointer;
+    }
+
+    nav #sub{
+      text-align: center;
+    }
+
+    nav #sub li{
+      width: 10vw;
+    }
+
+    nav #sub li:hover{
+      background-color: floralwhite;
+    }
+
+    section{
+      width: 100vw;
+      height: 100vh;
+      background-color: darkseagreen;
+      text-align: center;
+      line-height: 100vh;
+      font-size: 5em;
+    }
+  </style>
+
+</head>
+<body>
+  
+  <nav>
+    
+    <div id="dropBox">
+
+    </div>
+
+    <ul id="gnb">
+      <li>Menu
+        <ul id="sub" class="hidden">
+          <li>aaaaaaaaaaa</li>
+          <li>bbbbbbbbbbb</li>
+          <li>cccccccccc</li>
+          <li>dddddddddd</li>
+          <li>eeeeeeeeeee</li>
+        </ul>
+      </li>
+      <li>Menu
+        <ul id="sub" class="hidden">
+          <li>aaaaaaaaaa</li>
+          <li>aaaaaaaaaa</li>
+          <li>aaaaaaaaaa</li>
+          <li>aaaaaaaaaa</li>
+          <li>aaaaaaaaaa</li>
+        </ul>
+      </li>
+      <li>Menu
+        <ul id="sub" class="hidden">
+          <li>bbbbbbbbbbbb</li>
+          <li>bbbbbbbbbbbb</li>
+          <li>bbbbbbbbbbbb</li>
+          <li>bbbbbbbbbbbb</li>
+          <li>bbbbbbbbbbbb</li>
+        </ul>
+      </li>
+      <li>Menu
+        <ul id="sub" class="hidden">
+          <li>cccccccccccc</li>
+          <li>cccccccccccc</li>
+          <li>cccccccccccc</li>
+          <li>cccccccccccc</li>
+          <li>cccccccccccc</li>
+        </ul>
+      </li>
+      <li>Menu
+        <ul id="sub" class="hidden">
+          <li>dddddddddddd</li>
+          <li>dddddddddddd</li>
+          <li>dddddddddddd</li>
+          <li>dddddddddddd</li>
+          <li>dddddddddddd</li>
+        </ul>
+      </li>
+    </ul>
+
+  </nav>
+
+  <section>
+  </section>
+
+  
+
+  <script>
+
+    const $section = document.querySelector('section');
+    const $dropbox = document.querySelector('#dropBox');
+    console.log($dropbox);
+
+    $section.textContent = "ㅎ으라후ㅡㄹㅇ나ㅣ흐ㅜㄴ이ㅏㄹ힁;르히;ㅇㄹ";
+
+    const $gnb = document.querySelectorAll('#gnb>li');
+    console.log($gnb);
+    const $sub = document.querySelectorAll('#sub');
+    console.log($sub);
+
+    for (let i = 0; i < $sub.length; i++) {
+      $gnb[i].addEventListener('click', () => {
+        $sub[i].classList.toggle('hidden');
+        $dropbox.style.height = "30vh";
+
+        if ($sub[i].classList.contains('hidden')) {
+          $dropbox.style.height = "0vh";
+        }
+      })
+    }
+
+  </script>
+</body>
+</html>
