@@ -75,47 +75,22 @@
     <ul id="main-menu">
       <li>menu-1
         <ul class='hidden'>
-          <li>submenu-direction-1</li>
-          <li>submenu-direction-2</li>
-          <li>submenu-direction-3</li>
-          <li>submenu-direction-4</li>
-          <li>submenu-direction-5</li>
         </ul>
       </li>
       <li>menu-2
         <ul class='hidden'>
-          <li>submenu-direction-1</li>
-          <li>submenu-direction-2</li>
-          <li>submenu-direction-3</li>
-          <li>submenu-direction-4</li>
-          <li>submenu-direction-5</li>
         </ul>
       </li>
       <li>menu-3
         <ul class='hidden'>
-          <li>submenu-direction-1</li>
-          <li>submenu-direction-2</li>
-          <li>submenu-direction-3</li>
-          <li>submenu-direction-4</li>
-          <li>submenu-direction-5</li>
         </ul>
       </li>
       <li>menu-4
         <ul class='hidden'>
-          <li>submenu-direction-1</li>
-          <li>submenu-direction-2</li>
-          <li>submenu-direction-3</li>
-          <li>submenu-direction-4</li>
-          <li>submenu-direction-5</li>
         </ul>
       </li>
       <li>menu-5
         <ul class='hidden'>
-          <li>submenu-direction-1</li>
-          <li>submenu-direction-2</li>
-          <li>submenu-direction-3</li>
-          <li>submenu-direction-4</li>
-          <li>submenu-direction-5</li>
         </ul>
       </li>
     </ul>
@@ -125,6 +100,25 @@
   <script>
     // initial
     const mainMenu = document.querySelector('#main-menu');
+    const $sub = document.querySelectorAll('#main-menu li ul');
+    const list = document.createElement('li');
+
+    const listArr = [];
+    for (let i =0; i < 5; i++) {
+      list.textContent = `submenu-direction-${i} `
+      listArr.push(list);
+    }
+
+    console.log(listArr);
+
+    console.log($sub);
+    console.log(list);
+
+
+    for(let i = 0; i< $sub.length; i++) {
+      $sub[i].append(listArr[i]);
+    }
+
     console.log(mainMenu);
     // event
     mainMenu.addEventListener('click', function (event) {
@@ -133,7 +127,14 @@
       console.dir(event.target);
       // 이벤트 타겟이 배열인것을 확인 할 것
       console.log(event.target.children);
-      event.target.children[0].classList.toggle('hidden');
+
+      for (let i = 0; i<5;i++) {
+      event.target.children[i].classList.toggle('hidden');
+    }
+
+
+
+
     });
 
 

@@ -46,13 +46,17 @@
     const $btn = document.querySelectorAll('nav div');
     console.log($btn);
 
+    const hei = $btn[1].parentNode.clientHeight;
+    console.log(hei);
+
+
+
     $btn[1].addEventListener('click', () => {
-      const hei = "15";
-      $btn[1].parentNode.style.height = hei*2 + "vh";
+      $btn[1].parentNode.style.height = hei * 2 +"px";
     })
 
     $btn[0].addEventListener('click', () => {
-      $btn[0].parentNode.style.height = "15vh"; 
+      $btn[0].parentNode.style.height = hei + "px";
     })
 
   </script>

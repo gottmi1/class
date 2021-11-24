@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    *{padding: 0; margin: 0; box-sizing: border-box;}
+    ul,li{list-style: none;}
+
+    .po-re{position: relative;}
+    .po-ab{position: absolute;}
+
+    #container{
+      width: 1000px;
+      height: 650px;
+      margin: 0 auto;
+      background-color: brown;
+    }
+
+    header{
+      width: 200px;
+      height: 650px;
+      float: left;
+      background-color: chartreuse;
+    }
+
+    header #logo{
+      width: 100%;
+      height: 150px;
+      background-color: cornflowerblue;
+    }
+
+    header #gnb{
+      width: 100px;
+      height: 150px;
+      background-color: rgb(207, 173, 180);
+      margin-left: 50px;
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    header #gnb li{
+      line-height: 40px;
+    }
+
+    section {
+      width: 800px;
+      height: 650px;
+      background-color: coral;
+      float: right;
+    }
+
+    section #imgbox{
+      width: 800px;
+      height: 350px;
+      background-color: cyan;
+    }
+
+    section #mid{
+      background-color: darkcyan;
+      width: 100%;
+      height: 200px;
+    }
+
+    section #mid div{
+      background-color: darkgrey;
+      width: 33.33333333333%;
+      height: 100%;
+      float: left;
+    }
+
+  </style>
+
+</head>
+<body>
+  
+  <div id="container">
+
+    <header>
+
+      <div id="logo"></div>
+
+      <div id="gnb">Menu
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+      </div>
+
+    </header>
+
+    <section>
+
+      <div id="imgbox">
+
+      </div>
+
+      <div id="mid" class="po-re">
+        <div id="tab1" class="po-re"></div>
+        <div id="tab2" class="po-ab"></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <footer>
+
+      </footer>
+
+    </section>
+
+  </div>
+
+</body>
+</html>
