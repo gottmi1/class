@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+
+    *{padding: 0; margin: 0; box-sizing: border-box;}
+    ul,li{list-style: none;}
+
+    .po-ab{position: absolute;}
+    .po-re{position: relative;}
+    .zindex9{z-index: 9;}
+    .zindex5{z-index: 5;}
+    .zindex-1{z-index: -1;}
+    .ma-top20{margin-top: 20px;}
+    
+    #wrap{
+      width: 1200px;
+      height: 700px;
+      margin: 0 auto;
+    }
+
+    header{
+      width: 100%;
+      height: 100px;
+      background-color: brown;
+    }
+
+    #logo{
+      width: 200px;
+      height: 100%;
+      background-color: yellow;
+      float: left;
+    }
+
+    #gnb{
+      float: right;
+      background-color: white;
+      width: 500px;
+      height: 50px;
+      margin-top: 25px;
+      margin-right: 50px;
+      display: flex;
+    }
+
+    #gnb>li{
+      width: 25%;
+      height: 100%;
+      text-align: center;
+      line-height: 50px;
+    }
+
+    #sub{
+      font-size: 14px;
+      line-height: 40px;
+    }
+
+
+    section{
+      width: 100%;
+      height: 500px;
+      background-color: chartreuse;
+    }
+
+    #slide{
+      height: 300px;
+      background-color: burlywood;
+    }
+
+    #mid{
+      height: 200px;
+      background-color: cornflowerblue;
+      display: flex;
+    }
+
+    #mid >div{
+      width: 33.3333333%;
+      height: 200px;
+      border: 1px solid white;
+    }
+
+    #tab1{
+      background-color: violet;
+    }
+
+    #tab1 p{
+      width: 80%;
+      background-color: aliceblue;
+      height: 13%;
+      margin: 0 auto;
+      margin-top: 1%;
+    }
+
+    #tab2{
+      background-color: turquoise;
+    }
+
+    #tab2 #boxs{
+      width: 100%;
+      height: 170px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    #tab2 #boxs div{
+      width: 30%;
+      height: 70%;
+      background-color: white;
+    }
+
+    button{padding: 5px; width: 25%; border: none; cursor: pointer; transition: 500ms;}
+
+    #gall{background-color: turquoise;}
+    #notice{background-color: violet;}
+
+    footer{
+      width: 100%;
+      height: 100px;
+      background-color: blue;
+    }
+
+    footer div{
+      border: 1px solid white;
+      height: 100px;
+      float: left;
+    }
+
+    #botLogo{
+      width: 200px;
+    }
+
+    #copy{
+      width: 800px;
+    }
+
+    #sns{
+      width: 200px;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="wrap">
+
+    <header>
+
+      <div id="logo"></div>
+
+      <ul id="gnb">
+        <li>Menu1
+          <ul id="sub">
+            <li>sub menu</li>
+            <li>sub menu</li>
+            <li>sub menu</li>
+            <li>sub menu</li>
+          </ul>
+        </li>
+        <li>Menu2
+          <ul id="sub">
+            <li>sub menu</li>
+            <li>sub menu</li>
+            <li>sub menu</li>
+            <li>sub menu</li>
+          </ul>
+        </li>
+        <li>Menu3
+          <ul id="sub">
+            <li>sub menu</li>
+            <li>sub menu</li>
+            <li>sub menu</li>
+            <li>sub menu</li>
+          </ul>
+        </li>
+        <li>Menu4
+          <ul id="sub">
+            <li>sub menu</li>
+            <li>sub menu</li>
+            <li>sub menu</li>
+            <li>sub menu</li>
+          </ul>
+        </li>
+      </ul>
+
+    </header>
+
+    <section>
+
+      <div id="slide">
+
+      </div>
+
+      <div id="mid" class="po-re">
+
+        <div id="tab1" class="po-re zindex5">
+          <button style="background-color: violet;">공지사항</button>
+          <button id="gall">갤러리</button>
+
+          <p id="notice-1">공지사항 ㅇ흔앟</p>
+          <p>공지사항 ㅇ흔앟</p>
+          <p>공지사항 ㅇ흔앟</p>
+          <p>공지사항 ㅇ흔앟</p>
+          <p>공지사항 ㅇ흔앟</p>
+        </div>
+        <div id="tab2" class="po-ab zindex-1">
+          <button id="notice">공지사항</button>
+          <button style="background-color: turquoise;">갤러리</button>
+
+          <div id="boxs">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+
+        </div>
+        <div></div>
+        <div></div>
+
+      </div>
+
+    </section>
+
+    <footer>
+
+      <div id="botLogo"></div>
+      <div id="copy"></div>
+      <div id="sns"></div>
+
+    </footer>
+  </div>
+
+  <script>
+
+    const $tabOne = document.querySelector('#tab1');
+    const $tabTwo = document.querySelector('#tab2');
+    const $notice = document.querySelector('#notice');
+    const $gall = document.querySelector('#gall');
+    
+    const noticeTxt = document.querySelector('#notice-1');
+    noticeTxt.style.marginTop = "10px";
+
+    const $gnb = document.querySelectorAll('#gnb>li');
+    console.log($gnb);
+    const $sub = document.querySelectorAll('#sub>li');
+    console.log($sub);
+
+    for(let i = 0; i < $sub.length; i++) {
+      $sub[i].style.height ="-50px";
+      $sub[i].style.transition ="500ms";
+    }
+
+    for(let i = 0; i<$gnb.length; i++) {
+      $gnb[i].addEventListener('mouseover',() => {
+        for(let j=0; j<$sub.length; j++) {
+          $sub[j].style.height = "5vh";
+        }
+      })
+    }
+
+    $notice.addEventListener('click', (evt)=> {
+      $tabOne.classList.replace('zindex-1','zindex5');
+      $tabTwo.classList.replace('zindex5','zindex-1');
+    })
+
+    $gall.addEventListener('click', (evt)=> {
+      $tabTwo.classList.replace('zindex-1','zindex5');
+      $tabOne.classList.replace('zindex5','zindex-1');
+    })
+
+  </script>
+</body>
+</html>

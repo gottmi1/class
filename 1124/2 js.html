@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    *{padding: 0; margin: 0; box-sizing: border-box;}
+
+    .po-re{position: relative;}
+    .po-ab{position: absolute;}
+
+    #wrap{
+      width: 1000px;
+      height: 650px;
+      margin: 0 auto;
+    }
+
+    header{
+      width: 200px;
+      height: 650px;
+      background-color: blueviolet;
+      float: left;
+    }
+
+    section {
+      width: 800px;
+      height: 650px;
+      background-color: cadetblue;
+      float: right;
+    }
+
+    #con{
+      width: 800px;
+      height: 350px;
+      background-color: chocolate;
+    }
+
+    #mid{
+      width: 800px;
+      height: 200px;
+      background-color: crimson;
+    }
+
+    #mid div{
+      width: 33.33333333333%;
+      height: 100%;
+      border: 1px solid white;
+      float: left;
+    }
+
+    footer{
+      width: 800px;
+      height: 100px;
+      background-color: darkgreen;
+    }
+  </style>
+</head>
+<body>
+  
+  <div id="wrap">
+
+    <header>
+
+    </header>
+
+    <section>
+
+      <div id="con">
+
+      </div>
+
+      <div id="mid" class="po-re">
+        <div id="tab1" class="po-re"></div>
+        <div id="tab2" class="po-ab"></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <footer>
+
+      </footer>
+    </section>
+
+  </div>
+
+</body>
+</html>

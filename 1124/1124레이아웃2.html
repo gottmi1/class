@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    *{padding: 0; margin: 0; box-sizing: border-box;}
+    ul,li{list-style: none;}
+
+    .po-re{position: relative;}
+    .po-ab{position: absolute;}
+
+    #popbox{
+      width: 100vw; height: 100vh; position: absolute; z-index: 2; background-color: blueviolet; opacity: 50%;
+    }
+
+    #pop-up{
+      top: 50vh;
+      left: 50vw;
+      transform: translate(-50%);
+      width: 30vw;
+      height: 30vh;
+      background-color: honeydew;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 3;
+    }
+
+    #text {
+      margin-top: 10vh;
+      cursor: pointer;
+      width: 50%;
+      height: 10%;
+      text-align: center;
+      background-color: lightgrey;
+    }
+
+    header{
+      width: 100vw; 
+      height: 20vh; 
+      background-color: violet; 
+      padding-top: 6vh; 
+      padding-left: 10vw;
+    }
+
+    #logo{
+      width: 15vw; 
+      height: 8vh; 
+      background-color: coral; 
+      float: left;
+    }
+
+    #gnb{
+      float: right; 
+      width: 50vw; 
+      height: 6vh; 
+      background-color: white;
+      margin-right: 10vw;
+      margin-top: 1vh;
+    }
+
+    #gnb>li:hover{
+      background-color: lightslategray;
+    }
+
+    #gnb>li{
+      float: left; 
+      width: 25%; height: 6vh; 
+      text-align: center; line-height: 6vh; 
+      cursor: pointer;
+      transition: 300ms;
+    }
+
+    #sub{
+      background-color: lightsalmon;
+      width: 100%;
+      height: 0vh;
+      position: relative;
+      z-index: 1;
+      transition: 200ms;
+    }
+
+    #sub li{
+      height: 25%;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+      line-height: 5vh;
+      display: none;
+      transition: 200ms;
+    }
+    #sub>li:hover{
+      background-color: violet;
+    }
+
+    section {width: 100vw; height: 80vh; background-color: aquamarine;}
+
+    section div{width: 20vw; height: 30vh;}
+
+    section div:nth-child(1) {background-color: red; top: 10vh; left: 15vw;}
+    section div:nth-child(2) {background-color: blue; bottom: 10vh; left: 40vw;}
+    section div:nth-child(3) {background-color: green;top: 30vh; right: 10vw;}
+
+
+  </style>
+</head>
+<body>
+
+  <div id="pop-up" class="po-ab">
+    <h1>팝업입니다</h1>
+    <p id="text">이걸 누르면 없어져요</p>
+  </div>
+  
+  <div id="popbox">
+    
+  </div>
+
+  <header>
+    <div id="logo"></div>
+
+    <ul id="gnb">
+      <li>menu1
+        <ul id="sub">
+          <li>sub menu</li>
+          <li>sub menu</li>
+          <li>sub menu</li>
+          <li>sub menu</li>
+        </ul>
+      </li>
+      <li>menu2
+        <ul id="sub">
+          <li>sub menu</li>
+          <li>sub menu</li>
+          <li>sub menu</li>
+          <li>sub menu</li>
+        </ul>
+      </li>
+      <li>menu3
+        <ul id="sub">
+          <li>sub menu</li>
+          <li>sub menu</li>
+          <li>sub menu</li>
+          <li>sub menu</li>
+        </ul>
+      </li>
+      <li>menu4
+        <ul id="sub">
+          <li>sub menu</li>
+          <li>sub menu</li>
+          <li>sub menu</li>
+          <li>sub menu</li>
+        </ul>
+      </li>
+    </ul>
+  </header>
+
+  <section class="po-re">
+
+    <div class="po-ab"></div>
+    <div class="po-ab"></div>
+    <div class="po-ab"></div>
+
+  </section>
+
+  <script>
+    const $popBox = document.querySelector('#popbox');
+    const $popUp = document.querySelector('#pop-up');
+    const $text = document.querySelector('#text');
+
+    const $gnb = document.querySelectorAll('#gnb>li');
+    console.log($gnb);
+    const $sub = document.querySelectorAll('#sub');
+    console.log($sub);
+    const $subAll = document.querySelectorAll('#sub>li')
+    console.log($subAll);
+
+    $text.addEventListener('click', () => {
+      $popBox.style.zIndex = "-1";
+      $popUp.style.display = "none";
+    })
+
+
+    for(let i = 0; i < $gnb.length; i++) {
+      $gnb[i].addEventListener('mouseover', () => {
+        $sub[i].style.height = "20vh";
+        for(let j=0; j<$sub.length; j++) {
+          $sub[i].children[j].style.display = "block";
+        }
+      })
+      
+      $gnb[i].addEventListener('mouseout', () => {
+          $sub[i].style.height = "0vh";
+          for(let j=0; j<$sub.length; j++) {
+            $sub[i].children[j].style.display = "none";
+          }
+      })
+    }
+    
+  </script>
+
+</body>
+</html>
