@@ -132,12 +132,13 @@
         }
       }
     }, 2000);
+  
 
-    
     const kurTxt = document.querySelector('#section1 h1');
     const kurImg = document.querySelectorAll('#section1>div');
     console.log(kurTxt);
     console.log(kurImg);
+
 
 
     const outputEle = document.querySelector('.back');
@@ -167,6 +168,10 @@
       } else {
         $satin.style.top = "1600px";
         $satin.style.opacity = "0";
+      }
+
+      if (scrollY >= 1930) {
+
       }
     })
 
