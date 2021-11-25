@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+
+    *{padding: 0; margin: 0; box-sizing: border-box;}
+    ul,li{list-style: none;}
+
+    #video{
+      width: 100vw;
+      height: 100vh;
+      opacity: 80%;
+      position: fixed;
+      top: 0;
+      transform: scale(1.5);
+      background-size: contain;
+      transition: 500ms;
+    }
+
+    video{
+      height: 100vh;
+      width: 100vw;
+    }
+
+    section{
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
+</head>
+<body onload="opa(evt)">
+
+  <section id="video">
+    <video autoplay muted src="./video/goodbye.mp4"></video>
+  </section>
+
+
+  <section></section>
+  <section></section>
+  <section></section>
+  <section></section>
+
+
+
+  <script>
+    const $video = document.querySelector('#video');
+    console.log($video.clientHeight);
+    console.log($video);
+
+    console.log(window.innerHeight);
+    console.log(window.scrollY);
+
+    window.addEventListener('scroll' ,
+    (evt) => {
+    if(window.scrollY > 1000) {
+      $video.style.opacity = "30%";
+    }
+})
+  </script>
+
+</body>
+</html>

@@ -72,12 +72,14 @@
       height: 100%;
       text-align: center;
       line-height: 40px;
+      position: relative;
+      z-index: 5;
     }
 
     #sub{
       background-color: brown;
       height: 0;
-      transition: 500ms;
+      transition: 300ms;
       overflow: hidden;
     }
 
@@ -104,15 +106,22 @@
       overflow: hidden;
     }
 
-    #slider div{
+    #slider #con{
+      width: 3600px;
+      height: 300px;
+      background-color: whitesmoke;
+    }
+
+    #slider #con div{
       width: 1200px;
       height: 300px;
       transition: 500ms;
+      float: left;
     }
 
-    #slider div:nth-child(1) {background-color: aliceblue; background: url(./img/satin2.jpg);} 
-    #slider div:nth-child(2) {background-color: aqua;}
-    #slider div:nth-child(3) {background-color: black;}
+    #slider #con div:nth-child(1) {background-color: aliceblue;} 
+    #slider #con div:nth-child(2) {background-color: aqua;}
+    #slider #con div:nth-child(3) {background-color: black;}
 
     #mid{
       width: 1200px;
@@ -250,10 +259,13 @@
     <section>
 
       <div id="slider">
+
+        <div id="con">
+          <div><a href="#"></a></div>
+          <div></div>
+          <div></div>
+        </div>
         
-        <div><a href="#"></a></div>
-        <div></div>
-        <div></div>
 
       </div>
 
@@ -302,7 +314,7 @@
 
   <script>
 
-    const $slides = document.querySelectorAll('#slider>div');
+    const $slides = document.querySelectorAll('#slider>#con>div');
     console.log($slides);
 
     const $popup = document.querySelector('#popup')
@@ -357,12 +369,12 @@
 
     setInterval(() => {
       if (index < $slides.length-1) {
-        $slides[index].style.marginTop = "-300px"
+        $slides[index].style.marginLeft = "-1200px"
         index += 1;
       } else {
         index = 0;
         for (let i =0; i < $slides.length; i++) {
-          $slides[i].style.marginTop = "0";
+          $slides[i].style.marginLeft = "0";
         }
       }
     }, 1000);

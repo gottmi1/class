@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style> 
+    *{
+      padding: 0; margin: 0; 
+    }
+
+    #img{
+      position: absolute;
+      top: 1400px;
+      transition: 500ms;
+      opacity: 0;
+      background-attachment: fixed;
+    }
+
+  </style>
+</head>
+<body>
+  
+  <div class="output" style="width: 100vw; height: 2000px; background: #999"></div>
+  <img id="img" src="./img/satin2.jpg" alt="">
+  <div class="output" style="width: 100vw; height: 2000px; background: #999"></div>
+  <div class="output" style="width: 100vw; height: 2000px; background: #999"></div>
+  <div class="output" style="width: 100vw; height: 2000px; background: #999"></div>
+  <div class="output" style="width: 100vw; height: 2000px; background: #999"></div>
+  <div class="output" style="width: 100vw; height: 2000px; background: #999"></div>
+
+
+  <script>
+
+
+    const outputEle = document.querySelectorAll('.output');
+    const img = document.querySelector('#img');
+    window.addEventListener('scroll', (e) => {
+      e.preventDefault();
+      const posY = outputEle[0].getBoundingClientRect().bottom;
+      console.log(scrollY);
+      console.log(posY);
+      if (posY >= 1000 && posY <= 1400) {
+      img.style.top = "1200px";
+      img.style.opacity = "1";
+    } 
+    else {
+      img.style.top = "1400px";
+      img.style.opacity = "0";
+    }
+    })
+
+
+    
+
+  </script>
+
+</body>
+</html>
