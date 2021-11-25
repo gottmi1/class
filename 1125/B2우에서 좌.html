@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    *{padding: 0; margin: 0; box-sizing: border-box;}
+    ul,li{list-style: none;}
+
+    #popup{
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 30%;
+      width: 50%;
+      background-color: burlywood;
+      display: none;
+    }
+
+    #popup button{
+      position: absolute;
+      bottom: 0;
+      right: 100px;
+    }
+
+    #wrap{
+      width: 1200px;
+      height: 700px;
+      margin: 0 auto;
+      background-color: deepskyblue;
+    }
+
+    header{
+      width: 1200px;
+      height: 100px;
+      background-color: firebrick;
+      padding-right: 50px;
+    }
+
+    #logo{
+      width: 200px;
+      height: 100%;
+      float: left;
+      background-color: khaki;
+      display: flex;
+      align-items: center;
+    }
+    #logo>a{
+      width: 100%;
+      height: 40px;
+      background-color: black;
+    }
+
+    #gnb{
+      width: 600px;
+      height: 40px;
+      background-color: rgb(153, 153, 212);
+      float: right;
+      margin-top: 30px;
+      cursor: pointer;
+    }
+    #gnb>li:hover {
+      background-color: white;
+    }
+    #gnb>li{
+      float: left;
+      width: 25%;
+      height: 100%;
+      text-align: center;
+      line-height: 40px;
+      position: relative;
+      z-index: 5;
+    }
+
+    #sub{
+      background-color: brown;
+      height: 0;
+      transition: 300ms;
+      overflow: hidden;
+    }
+
+    #sub>li{
+      height: 30px;
+      line-height: 30px;
+      display: none;
+    }
+
+    #sub>li:hover{
+      background-color: chartreuse;
+    }
+
+    section{
+      width: 1200px;
+      height: 500px;
+      background-color: ivory;
+    }
+
+    #slider{
+      width: 1200px;
+      height: 300px;
+      background-color: chocolate;
+      overflow: hidden;
+    }
+
+    #slider #con{
+      width: 3600px;
+      height: 300px;
+      background-color: whitesmoke;
+    }
+
+    #slider #con div{
+      width: 1200px;
+      height: 300px;
+      transition: 500ms;
+      float: left;
+    }
+
+    #slider #con div:nth-child(1) {background-color: aliceblue;} 
+    #slider #con div:nth-child(2) {background-color: aqua;}
+    #slider #con div:nth-child(3) {background-color: black;}
+
+    #mid{
+      width: 1200px;
+      height: 200px;
+      background-color: cyan;
+      display: flex;
+    }
+    #mid button{
+      height: 10%;
+      width: 50%;
+      border: none;
+    }
+    #mid>div{
+      width: 33.333333%;
+      height: 100%;
+    }
+    
+    #mid>div:nth-child(1) {background-color: darkgray; }
+    #mid>div:nth-child(2) {background-color: darkorchid;}
+    #mid>div:nth-child(3) {background-color: darkviolet;}
+    
+    .box{
+      width: 100%;
+      height: 90%;
+      background-color: dimgray;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+    .box p{
+      margin-bottom: 5px;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .box2{
+      width: 100%;
+      height: 90%;
+      background-color: dimgray;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .box2 div{
+      width: 30%;
+      height: 70%;
+      background-color: forestgreen;
+    }
+
+    footer{
+      width: 1200px;
+      height: 100px;
+      background-color: forestgreen;
+    }
+
+    #copy{
+      width: 1000px;
+      height: 100px;
+      float: left;
+      background-color: black;
+    }
+
+    #sns{
+      width: 200px;
+      height: 50px;
+      float: right;
+      background-color: wheat;
+    }
+
+    #family{
+      width: 200px;
+      height: 50px;
+      float: right;
+      background-color: yellow;
+    }
+
+
+  </style>
+</head>
+<body>
+  
+  <div id="popup">
+    <h1>팝업팝업팝업팝업</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit dignissimos iure harum numquam! Minus eaque odio cumque quis blanditiis dolore doloremque facilis! Corporis suscipit minima excepturi! Consectetur quia voluptate fugit.</p>
+    <button id="close">닫어</button>
+  </div>
+
+  <div id="wrap">
+
+    <header>
+
+      <div id="logo">
+        <a href="#"><img src="" alt=""></a>
+      </div>
+
+      <div id="gnb">
+        <li>menu1
+          <ul id="sub">
+            <li>sub menu1</li>
+            <li>sub menu2</li>
+            <li>sub menu3</li>
+            <li>sub menu4</li>
+          </ul>
+        </li>
+        <li>menu2
+          <ul id="sub">
+            <li>sub menu1</li>
+            <li>sub menu2</li>
+            <li>sub menu3</li>
+            <li>sub menu4</li>
+          </ul>
+        </li>
+        <li>menu3
+          <ul id="sub">
+            <li>sub menu1</li>
+            <li>sub menu2</li>
+            <li>sub menu3</li>
+            <li>sub menu4</li>
+          </ul>
+        </li>
+        <li>menu4
+          <ul id="sub">
+            <li>sub menu1</li>
+            <li>sub menu2</li>
+            <li>sub menu3</li>
+            <li>sub menu4</li>
+          </ul>
+        </li>
+      </div>
+
+    </header>
+
+
+    <section>
+
+      <div id="slider">
+
+        <div id="con">
+          <div><a href="#"></a></div>
+          <div></div>
+          <div></div>
+        </div>
+        
+
+      </div>
+
+      <div id="mid">
+
+        <div>
+          <button>공지사항</button>
+          <div class="box">
+            <p id="poptxt">공지사항공지사항공지사항</p>
+            <p>공지사항공지사항공지사항</p>
+            <p>공지사항공지사항공지사항</p>
+            <p>공지사항공지사항공지사항</p>
+            <p>공지사항공지사항공지사항</p>
+          </div>
+
+        </div>
+
+        <div>
+          <button>갤러리</button>
+          <div class="box2">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <div></div>
+
+      </div>
+
+    </section>
+
+
+    <footer>
+
+      <div id="copy"></div>
+      <div id="sns"></div>
+      <div id="famliy"></div>
+
+    </footer>
+
+  </div>
+
+
+
+
+
+  <script>
+
+    const $slides = document.querySelectorAll('#slider>#con>div');
+    console.log($slides);
+
+    const $popup = document.querySelector('#popup')
+    const $poptxt = document.querySelector('#poptxt');
+    const $close = document.querySelector('#close');
+    //팝업초기화
+
+    const $gnb = document.querySelectorAll('#gnb>li');
+    const $sub = document.querySelectorAll('#sub');
+    const $subLi = document.querySelectorAll('#sub>li');
+    console.log($sub);
+    console.log($subLi);
+    
+
+    //팝업 이벤트
+    $poptxt.addEventListener('click', () => {
+      $popup.style.display = "block";
+    })
+
+    $close.addEventListener('click', () => {
+      $popup.style.display = "none";
+    })
+    
+
+
+    //메뉴
+
+    for (let i = 0; i < $gnb.length; i++) {
+
+      $gnb[i].addEventListener('mouseover',() => {
+        for (let j = 0; j < $sub.length; j++) {
+          $sub[j].style.height = "120px";
+          for ( let k = 0; k < $subLi.length; k++) {
+            $subLi[k].style.display = "block";
+          }
+        }
+      })
+
+      $gnb[i].addEventListener('mouseout',() => {
+        for (let j = 0; j < $sub.length; j++) {
+          $sub[j].style.height = "0px";
+          for ( let k = 0; k < $subLi.length; k++) {
+            $subLi[k].style.display = "none";
+          }
+        }
+      })
+    }
+
+
+    // 슬라이드 함수
+    let index = 0;
+
+    setInterval(() => {
+      if (index < $slides.length-1) {
+        $slides[index].style.marginLeft = "-1200px"
+        index += 1;
+      } else {
+        index = 0;
+        for (let i =0; i < $slides.length; i++) {
+          $slides[i].style.marginLeft = "0";
+        }
+      }
+    }, 1000);
+
+  </script>
+</body>
+</html>

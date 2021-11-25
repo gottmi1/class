@@ -11,45 +11,163 @@
       padding: 0; margin: 0; 
     }
 
-    #img{
+    .po-ab{position: absolute;}
+    .po-re{position: relative;}
+
+    .back{
+      overflow: hidden;
+    }
+
+    #slide{width: 100vw;height: 100vh; float: left; transition: 200ms; opacity: 30%;}
+    #slide:nth-child(1) {background-color: salmon; background: url(./img/satin1.jpg) no-repeat center center; background-size: cover;}
+    #slide:nth-child(2) {background-color: silver; background: url(./img/h24.jpg) no-repeat center center; background-size: cover;}
+    #slide:nth-child(3) {background-color: slateblue; background: url(./img/black-orchid.jpg) no-repeat center center; background-size: cover;}
+    #slide:nth-child(4) {background-color: slateblue; background: url(./img/visuel-ombre-horizontal-rvb-72dpi.jpg) no-repeat center center; background-size: cover;}
+    #slide:nth-child(5) {background-color: slateblue; background: url(./img/bldecha.jpg) no-repeat center center; background-size: cover;}
+
+    #satin{
       position: absolute;
-      top: 1400px;
-      transition: 500ms;
+      top: 1600px;
+      transition: 1000ms;
       opacity: 0;
       background-attachment: fixed;
+      width: 100vw;
+      height: 100vh;
+      z-index: 9999999;
+    }
+
+    #top{
+      width: 500vw;
+      height: 100vh;
+      background-color: black;
+    }
+
+    #section1{
+      width: 100vw;
+      height: 100vh;
+      background: #111;
+      position: relative;
+    }
+
+    #section1 h1{
+      font-size: 4em;
+      color: rgb(228, 219, 168);
+      text-shadow: white 3px 3px 3px;
+      position: absolute;
+      left: 1%;
+      top: 0px;
+      z-index: 10;
+      opacity: 0;
+      transition: 400ms;
+    }
+
+    #section1 #kur1{
+      height: 90vh;
+      width: auto;
+      right: 10vw;
+      top: 50px;
+      opacity: 0;
+      transition: 2000ms;
+    }
+
+    #section1 #kur2{
+      height: 70vh;
+      width: auto;
+      left: 5vw;
+      top: 200px;
+      opacity: 0;
+      transition: 1000ms;
+    }
+
+    #section1 img {
+      width: 100%;
+      height: 100%;
     }
 
   </style>
 </head>
 <body>
   
-  <div class="output" style="width: 100vw; height: 2000px; background: #999"></div>
-  <img id="img" src="./img/satin2.jpg" alt="">
-  <div class="output" style="width: 100vw; height: 2000px; background: #999"></div>
-  <div class="output" style="width: 100vw; height: 2000px; background: #999"></div>
-  <div class="output" style="width: 100vw; height: 2000px; background: #999"></div>
-  <div class="output" style="width: 100vw; height: 2000px; background: #999"></div>
-  <div class="output" style="width: 100vw; height: 2000px; background: #999"></div>
+  <div class="back" style="width: 100vw; height: 10000px; background: #eee">
+
+    
+
+    <div id="top">
+      <div id="slide"></div>
+      <div id="slide"></div>
+      <div id="slide"></div>
+      <div id="slide"></div>
+      <div id="slide"></div>
+    </div>
+
+    <div id="section1">
+      <h1>MAISON FRANCIS <br> KURKDJIAN <br> PARIS</h1>
+      <div id="kur1" class="po-ab"><img src="./img/1.jpg" alt=""></div>
+      <div id="kur2" class="po-ab"><img src="./img/2.jpg" alt=""></div>
+    </div>
+      
+    <img id="satin" src="./img/satin2.jpg" alt="">
+
+  </div>
+  
+
 
 
   <script>
 
+    //slider
 
-    const outputEle = document.querySelectorAll('.output');
-    const img = document.querySelector('#img');
+    const $slides = document.querySelectorAll('#slide');
+    console.log($slides);
+
+    let index = 0;
+    setInterval(() => {
+      if(index < $slides.length-1) {
+        $slides[index].style.marginLeft = '-100vw';
+        index += 1;
+      } else { 
+        index = 0;
+        for(let i = 0; i< $slides.length; i++) {
+        $slides[i].style.marginLeft = '0vw';
+        }
+      }
+    }, 2000);
+
+    
+    const kurTxt = document.querySelector('#section1 h1');
+    const kurImg = document.querySelectorAll('#section1>div');
+    console.log(kurTxt);
+    console.log(kurImg);
+
+
+    const outputEle = document.querySelector('.back');
+    console.log(outputEle);
+    const $satin = document.querySelector('#satin');
+
     window.addEventListener('scroll', (e) => {
       e.preventDefault();
-      const posY = outputEle[0].getBoundingClientRect().bottom;
+      const posY = outputEle.getBoundingClientRect().bottom;
       console.log(scrollY);
       console.log(posY);
-      if (posY >= 1000 && posY <= 1400) {
-      img.style.top = "1200px";
-      img.style.opacity = "1";
-    } 
-    else {
-      img.style.top = "1400px";
-      img.style.opacity = "0";
-    }
+
+      if (scrollY >= 300) {
+        kurTxt.style.opacity = "1";
+        kurImg[0].style.opacity = "1";
+        kurImg[1].style.opacity = "1";
+      } else {
+        kurTxt.style.opacity = "0"
+        kurImg[0].style.opacity = "0";
+        kurImg[1].style.opacity = "0";
+      }
+
+
+      if (scrollY >= 1000 && scrollY <= 1900) {
+      $satin.style.top = "1100px";
+      $satin.style.opacity = "1";
+      } else {
+        $satin.style.top = "1600px";
+        $satin.style.opacity = "0";
+      }
     })
 
 
