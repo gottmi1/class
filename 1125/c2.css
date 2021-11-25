@@ -1,0 +1,192 @@
+*{padding: 0; margin: 0; box-sizing: border-box;}
+    ul,li{
+      list-style: none;
+    }
+
+    .hidden{height: 0;}
+    .hei100{height: 100px;}
+    .dis-no{display: none;}
+    .dis-bl{display: block;}
+
+    #popup{
+      position: absolute;
+      left: 50%;
+      top: 20%;
+      transform: translateX(-50%);
+      width: 50%;
+      height: 50%;
+      background-color: violet;
+    }
+
+    #popup button{
+      padding: 5px;
+      position: absolute;
+      bottom: 0;
+      right: 50px;
+    }
+
+    #wrap{
+      width: 1000px;
+      height: 650px;
+      margin: 0 auto;
+    }
+
+    header{
+      width: 200px;
+      height: 650px;
+      background-color: antiquewhite;
+      float: left;
+    }
+
+    #logo{
+      width: 200px;
+      height: 100px;
+      background-color: black;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    #logo a{
+      width: 100%;
+      height: 40px;
+      background-color: fuchsia;
+    }
+
+    #gnb{
+      width: 160px;
+      height: auto;
+      margin: 0 auto;
+      background-color: blueviolet;
+      text-align: center;
+      cursor: pointer;
+    }
+    #gnb>li{
+      width: 100%;
+      height: 25%;
+      line-height: 50px;
+    }
+    #gnb>li:hover{
+      background-color: red;
+    }
+
+    #sub{
+      /* height: 100px; */
+      background-color: palegreen;
+      transition: 200ms;
+      overflow: hidden;
+    }
+
+    #sub>li{
+      height: 25px;
+      line-height: 25px;
+    }
+
+    #sub>li:hover{
+      background-color: turquoise;
+    }
+
+    section{
+      width: 800px;
+      height: 650px;
+      background-color: aqua;
+      float: right;
+    }
+
+    #slide{
+      width: 800px;
+      height: 350px;
+      background-color: burlywood;
+      overflow: hidden;
+    }
+
+    #slide div{
+      width: 800px;
+      height: 350px;
+      transition: 500ms;
+    }
+
+    #slide div:nth-child(1) {background-color: salmon; background: url(./img/satin2.jpg) center center; }
+    #slide div:nth-child(2) {background-color: skyblue;}
+    #slide div:nth-child(3) {background-color: thistle;}
+
+    #mid{
+      width: 800px;
+      height: 200px;
+      background-color: cyan;
+      display: flex;
+    }
+
+    #mid>div{
+      width: 33.3333333333%;
+      height: 100%;
+    }
+
+    #mid>div:nth-child(1) {background-color: khaki;} 
+    #mid>div:nth-child(2) {background-color: darkslategray;}
+    #mid>div:nth-child(3) {background-color: darkturquoise;}
+
+    button{
+      width: 50%;
+      padding: 6px;
+      border: none
+    }
+
+    .box{
+      width: 266.6666px;
+      height: 170px;
+      background-color: aquamarine;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box2{
+      width: 266.6666px;
+      height: 170px;
+      background-color: aquamarine;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .box2 div{
+      width: 32%;
+      height: 60%;
+      background-color: oldlace;
+    }
+
+    #notice p{
+      text-decoration: underline;
+      margin-bottom: 5px;
+      cursor: pointer;
+    }
+
+
+    footer{
+      width: 800px;
+      height: 100px;
+      background-color: darkgray;
+    }
+
+    #copy{
+      width: 600px;
+      height: 100px;
+      background-color: darkorange;
+      float: left;
+    }
+
+    #sns{
+      width: 200px;
+      height: 50px;
+      background-color: darkslategray;
+      float: right;
+    }
+
+    #famliy{
+      width: 200px;
+      height: 50px;
+      background-color: forestgreen;
+      float: right;
+    }

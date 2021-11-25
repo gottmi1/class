@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1></h1>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio omnis ad voluptates? Adipisci, saepe modi ipsa odit officiis quisquam nihil, perspiciatis mollitia non vel fugiat? Vitae distinctio et eaque eveniet?</p>
+  <p>Fuga voluptates sed commodi dignissimos itaque doloribus fugit, necessitatibus dolorem. Doloremque magni, molestias ipsa molestiae nemo ad perferendis, id dignissimos facere laudantium ut unde in placeat expedita cumque eaque. Sint?</p>
+  <p>Repudiandae sequi tempora consequatur ratione deleniti molestias mollitia est maiores, quo error aspernatur explicabo, magnam tempore id at architecto! Quibusdam neque ducimus praesentium totam fugiat vero repudiandae, sed consectetur consequuntur?</p>
+  <p>Unde voluptatibus esse rem nihil fugiat aliquam perspiciatis nam dolor, quaerat provident accusamus sunt placeat quam culpa iusto repudiandae asperiores aut ipsum eligendi necessitatibus. Aspernatur quo dignissimos cum et veniam.</p>
+
+  <script>
+
+    const hOne = document.querySelector('h1');
+    console.log(hOne);
+    console.dir(hOne);
+
+    hOne.innerHTML = " 이 건 뭐 야 ";
+
+    const arr = ['하얗게','피어난','얼음꽃','하나가'];
+    let index = 0;
+    
+    setInterval(() => {
+      if ( index < arr.length) {
+        hOne.textContent = arr[index];
+        index += 1;
+      } else if (index = arr.length) {
+        index = 0;
+        hOne.style.opacity = "1";
+        hOne.textContent = "달가운바람에얼굴을내밀어아무말못했던이름도몰랐던지나간날들에눈물이흘러";
+      }
+    }, 2000);
+  
+
+  </script>
+</body>
+</html>

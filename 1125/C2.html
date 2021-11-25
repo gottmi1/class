@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="./c2.css">
+  <script src="/c2.js"></script>
+</head>
+<body>
+  
+  <div id="wrap">
+
+    <div id="popup" class="dis-no">
+
+      <h1>파아아아아아아아아아압업</h1>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate dignissimos in quisquam exercitationem a repudiandae nihil? Dolores, totam enim itaque incidunt, numquam unde officia perspiciatis doloribus magni accusantium ipsam doloremque.
+      Aspernatur eligendi molestiae voluptate pariatur cum in nulla, optio vero, itaque harum perspiciatis culpa asperiores cupiditate sapiente? Ducimus iste necessitatibus optio quasi dicta maiores molestiae cumque, ratione quibusdam corporis aut!
+      Hic consequatur, aliquam, quasi, quis similique eligendi corporis debitis inventore blanditiis maxime necessitatibus sit culpa sunt harum odit ullam! Debitis fuga odit dolorum libero aliquid ratione voluptatibus corporis excepturi repellendus.
+      Qui facilis cum quo quam iste, modi hic, incidunt placeat illum accusantium dolorem? Reprehenderit ipsum animi nisi exercitationem consectetur. Odit tempore minus consequuntur blanditiis, suscipit aliquid ullam hic earum perferendis.</p>
+      <button id="close">닫기</button>
+    </div>
+
+    <header>
+
+      <div id="logo">
+        <a href="#"><img src="" alt=""></a>
+      </div>
+
+      <ul id="gnb">
+        <li>menu1
+          <ul id="sub" class="hidden">
+            <li class="dis-no">submenu1</li>
+            <li class="dis-no">submenu2</li>
+            <li class="dis-no">submenu3</li>
+            <li class="dis-no">submenu4</li>
+          </ul>
+        </li>
+        <li>menu2
+          <ul id="sub" class="hidden">
+            <li class="dis-no">submenu1</li>
+            <li class="dis-no">submenu2</li>
+            <li class="dis-no">submenu3</li>
+            <li class="dis-no">submenu4</li>
+          </ul>
+        </li>
+        <li>menu3
+          <ul id="sub" class="hidden">
+            <li class="dis-no">submenu1</li>
+            <li class="dis-no">submenu2</li>
+            <li class="dis-no">submenu3</li>
+            <li class="dis-no">submenu4</li>
+          </ul>
+        </li>
+        <li>menu4
+          <ul id="sub" class="hidden">
+            <li class="dis-no">submenu1</li>
+            <li class="dis-no">submenu2</li>
+            <li class="dis-no">submenu3</li>
+            <li class="dis-no">submenu4</li>
+          </ul>
+        </li>
+      </ul1gnb>
+
+    </header>
+
+    <section>
+
+      <div id="slide">
+
+        <div></div>
+        <div></div>
+        <div></div>
+
+      </div>
+      
+      <div id="mid">
+        <div id="notice">
+          <button>공지사항</button>
+
+          <div class="box">
+            <p id="poptxt">공지사항공지사항공지사항</p>
+            <p>공지사항공지사항공지사항</p>
+            <p>공지사항공지사항공지사항</p>
+            <p>공지사항공지사항공지사항</p>
+            <p>공지사항공지사항공지사항</p>
+          </div>
+
+        </div>
+
+        <div id="gall">
+        <button>갤러리</button>
+
+          <div class="box2">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+
+        </div>
+        <div></div>
+      </div>
+
+      <footer>
+
+        <div id="copy"></div>
+        <div id="sns"></div>
+        <div id="famliy"></div>
+
+      </footer>
+
+    </section>
+
+  </div>
+
+  <script>
+
+    const $gnb = document.querySelectorAll('#gnb>li');
+    const $sub = document.querySelectorAll('#sub');
+    const $subLi = document.querySelectorAll('#sub>li');
+
+    console.log($gnb);
+    console.log($sub);
+    console.log($subLi);
+
+    const $popTxt = document.querySelector('#poptxt');
+    const $popUp = document.querySelector('#popup');
+    const $close = document.querySelector('#close');
+
+    const $slider = document.querySelectorAll('#slide>div')
+    console.log($slider);
+
+    let index = 0;
+
+    setInterval(() => {
+      if(index < $slider.length-1) {
+        $slider[index].style.marginTop = "-350px";
+        index += 1;
+      } else {
+        index = 0;
+        for(let i = 0; i <$slider.length; i++) {
+        $slider[i].style.marginTop = "0px";
+        }
+      }
+    }, 2000);
+
+
+
+    $popTxt.addEventListener('click', () => {
+      $popUp.classList.remove('dis-no')
+    })
+
+    $close.addEventListener('click', () => {
+      $popUp.classList.add('dis-no');
+    })
+
+
+    for (let i = 0; i < $gnb.length; i++) {
+      $gnb[i].addEventListener('mouseover', (evt) => {
+        $sub[i].classList.replace('hidden', 'hei100');
+          for (let j = 0; j <$sub.length; j++) {
+          $sub[i].children[j].classList.replace('dis-no','dis-bl');
+        }  
+      })
+
+      $gnb[i].addEventListener('mouseout', () => {
+        $sub[i].classList.replace('hei100','hidden');
+        for (let j = 0; j <$subLi.length; j++) {
+          $sub[i].children[j].classList.replace('dis-bl','dis-no');
+        }
+      })
+
+    }
+
+
+    // for (let i=0; i < $gnb.length; i++) {
+    //   $gnb[i].addEventListener('mouseover', () => {
+    //     $sub[i].classList.toggle('hidden');
+    //     for(let j=0; j<$subLi.length; j++) {
+    //       $sub[i].children[j].classList.toggle('dis-no');
+    //     }
+    //   })
+    // }
+
+
+
+  </script>
+
+</body>
+</html>
