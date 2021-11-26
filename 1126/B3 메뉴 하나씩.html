@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    *{padding: 0; margin: 0;}
+
+    .hidden{height: 0;}
+    .hei120{height: 120px;}
+    .white{background-color: white;}
+    .black{background-color: #555;}
+
+    ul,li{list-style: none;}
+    #wrap{
+      width: 1200px;
+      height: 700px;
+      margin: 0 auto;
+      background-color: antiquewhite;
+    }
+
+    header{width: 1200px; height: 100px; background-color: aqua; display: flex; justify-content: space-between; align-items: center;}
+    header #logo{width: 200px; height: 100px; background-color: cornflowerblue; display: flex; align-items: center;}
+    header #logo a{width: 100%; height: 40px; background-color: crimson;}
+    header #gnb {width: 500px; height: 30px; float: right; background-color: blueviolet; margin-right: 50px;}
+    header #gnb > li{width: 25%; height: 100%; text-align: center; float: left; line-height: 30px; color: white;}
+    header #sub{background-color: tomato; position: relative; z-index: 9; transition: 200ms; overflow: hidden;}
+    #sub li{ color: blue;}
+
+    #gnb>li:hover {background-color: black;}
+    #sub>li:hover {background-color: brown;}
+
+    
+    section{width: 1200px; height: 500px; background-color: azure;}
+    #slider{width: 1200px; height: 300px; background-color: bisque; overflow: hidden;}
+    #slider div{width: 100%; height: 100%; transition: 500ms;}
+
+    #slider div:nth-child(1) {background-color: #111;}
+    #slider div:nth-child(2) {background-color: #555;}
+    #slider div:nth-child(3) {background-color: #999;}
+
+    #mid{width: 1200px; height: 200px; background-color: #555; display: flex;}
+    #mid>div{width: 33.333333%; height: 200px; background-color: coral;}
+    #mid article {width: 100%; height: 170px; background-color: tan;} 
+    #noticeArt { display: flex; flex-direction: column; justify-content: center; align-items: center;}
+    #gallArt {display: flex; justify-content: space-around; align-items: center;}
+    #mid article p{
+      margin-bottom: 5px; cursor: pointer;
+    }
+    #mid article div{width: 26%; height: 70%; background-color: turquoise;}
+    #mid button { width: 50%; text-align: center; height: 30px; border: none; border-radius: 15px 15px 0 0; transition: 500ms;}
+
+
+    footer{width: 1200px; height: 100px; background-color: #333; display: flex;}
+
+    footer div:nth-child(1) {width: 200px; background-color: thistle;}
+    footer div:nth-child(2) {width: 800px; background-color: turquoise;}
+    footer div:nth-child(3) {width: 200px; background-color: violet;}
+
+
+
+
+    #modal{width: 500px; height: 500px; background-color: violet; position: absolute; z-index: 2; left: 50%; top: 30%; transform: translateX(-50%); display: none;}
+
+    #modal button{width: 200px; padding: 5px; position: absolute; bottom: 30px; right: 50px;}
+  </style>
+
+</head>
+<body>
+  
+  <div id="modal">
+    <h1>팝업</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, veritatis molestias nostrum quos amet alias mollitia corporis odio, reprehenderit saepe quod vero tempore. Libero minus itaque tempora, corporis quo reiciendis?</p>
+    <button>닫기</button>
+  </div>
+
+  <div id="wrap">
+
+    <header>
+      <div id="logo"><a href="#"><img src="" alt=""></a></div>
+
+      <ul id="gnb">
+        <li>menu1
+          <ul id="sub" class="hidden">
+            <li>sub</li>
+            <li>sub</li>
+            <li>sub</li>
+            <li>sub</li>
+          </ul>
+        </li>
+        <li>menu2
+          <ul id="sub" class="hidden">
+            <li>sub</li>
+            <li>sub</li>
+            <li>sub</li>
+            <li>sub</li>
+          </ul>
+        </li>
+        <li>menu3
+          <ul id="sub" class="hidden">
+            <li>sub</li>
+            <li>sub</li>
+            <li>sub</li>
+            <li>sub</li>
+          </ul>
+        </li>
+        <li>menu4
+          <ul id="sub" class="hidden">
+            <li>sub</li>
+            <li>sub</li>
+            <li>sub</li>
+            <li>sub</li>
+          </ul>
+        </li>
+      </ul>
+    </header>
+
+    <section>
+
+      <div id="slider">
+
+        <div></div>
+        <div></div>
+        <div></div>
+
+      </div>
+
+      <div id="mid">
+
+        <div id="noitce">
+          <button id="noticebtn" class="white">공지사항</button>
+          <article id="noticeArt">
+            <p id="noticetxt">공지사항</p>
+            <p>공 지 사 항</p>
+            <p>공 지 사 항</p>
+            <p>공 지 사 항</p>
+            <p>공 지 사 항</p>
+          </article>
+        </div>
+
+        <div id="gall">
+          <button id="gallbtn" class="white">갤러리</button>
+          <article id="gallArt">
+            <div></div>
+            <div></div>
+            <div></div>
+          </article>
+        </div>
+        <div></div>
+
+      </div>
+
+    </section>
+
+    <footer>
+
+      <div></div>
+      <div></div>
+      <div></div>
+
+    </footer>
+
+  </div>
+
+
+  <script>
+
+    const $pop = document.querySelector('#modal');
+    const $popTxt = document.querySelector('#noticetxt')
+    const $close = document.querySelector('#modal button');
+    
+    $popTxt.addEventListener('click', () => {
+      $pop.style.display = "block";
+    })
+    $close.addEventListener('click', () => {
+      $pop.style.display = "none";
+    })
+
+    // modal
+
+    const $gnb = document.querySelectorAll('#gnb>li');
+    console.log($gnb);
+    const $sub = document.querySelectorAll('#sub');
+    const $subLi = document.querySelectorAll('#sub>li');
+    console.log($sub);
+    console.log($subLi);
+
+    for(let i = 0; i<$gnb.length; i++) {
+      $gnb[i].addEventListener('mouseover', () => {
+        $sub[i].classList.replace('hidden','hei120');
+      })
+
+      $gnb[i].addEventListener('mouseout', () => {
+        $sub[i].classList.replace('hei120','hidden');
+      })
+    }
+
+    // menu
+
+    const $noticeBtn = document.querySelector('#noticebtn');
+    console.log($noticeBtn);
+    const $gallBtn = document.querySelector('#gallbtn');
+
+    $noticeBtn.addEventListener('click', () => {
+      if ( $noticeBtn.classList.contains('white')) {
+        $noticeBtn.classList.replace('white','black');
+        $noticeBtn.style.color = "white";
+        $gallBtn.classList.replace('black','white');
+        $gallBtn.style.color = "black";
+      }
+    })
+
+    $gallBtn.addEventListener('click', () => {
+      if ( $gallBtn.classList.contains('white')) {
+        $gallBtn.classList.replace('white','black')
+        $gallBtn.style.color = "white";
+        $noticeBtn.classList.replace('black','white')
+        $noticeBtn.style.color = "black";
+      }
+    })
+
+    // notice,gall Btn
+
+    const $slides = document.querySelectorAll('#slider>div');
+    console.log($slides);
+
+    let index = 0;
+    setInterval(() => {
+      if (index < $slides.length -1 ) {
+        $slides[index].style.marginTop = "-300px";
+        index += 1;
+      } else {
+        index = 0;
+        for (let i = 0; i<$slides.length; i++) {
+          $slides[i].style.marginTop = "0";
+        }
+      }
+    }, 3000);
+
+    //slider
+
+
+  </script>
+</body>
+</html>
