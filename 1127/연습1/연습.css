@@ -1,0 +1,167 @@
+*{padding: 0; margin: 0; box-sizing: border-box;}
+ul,li{list-style: none;}
+a{color: #333; text-decoration: none;}
+
+#wrap{
+  width: 1200px;
+  height: 650px;
+  margin: 0 auto;
+}
+
+header{
+  width: 200px;
+  height: 650px;
+  float: left;
+  background-color: #888;
+}
+
+section{
+  width: 1000px;
+  height: 550px;
+  float: right;
+  background-color: #777;
+  overflow: hidden;
+}
+
+footer{
+  width: 1000px;
+  height: 100px;
+  float: right;
+  background-color: #666;
+}
+
+/*                     여기까지 1                    */
+
+header #logo{
+  width: 200px;
+  height: 150px;
+  background-color: white;
+}
+
+header #gnb{
+  width: 150px;
+  height: auto;
+  background-color: whitesmoke;
+  margin-left: 25px;
+  margin-top: 50px;
+}
+/* 마진으로 자리 잡아줌, 아코디언으로 만들기위해 height는 auto */
+
+#gnb>li{
+  height: auto;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+  transition: 300ms;
+}
+/* #sub li들도 부모(#gnb>li)의 속성을 물려받기 때문에 #sub는 따로 줘야 함 */
+#gnb>li:hover{
+  background-color: black;
+  color: whitesmoke;
+}
+
+
+#sub{
+  display: block;
+  background-color: turquoise;
+  overflow: hidden;
+  transition: 500ms;
+}
+
+#sub li{
+  height: 25px;
+  line-height: 25px;
+  transition: 300ms;
+}
+#sub>li:hover{
+  background-color: red;
+}
+
+
+/*                       여기까지 2                      */
+
+section #slide{
+  width: 3000px;
+  height: 350px;
+}
+
+#slide div{
+  width: 1000px;
+  height: 350px;
+  float: left;
+  transition: 1000ms;
+}
+
+/* 우 -> 좌로 슬라이드 하기 위해 #slide의 width는 안에 들어갈 div갯수 * 1000 section에 overflow hidden을 걸었기 때문에 section을 벗어나는 div는 보이지 않음 */
+
+#slide div:nth-child(1) {background-color: tomato;}
+#slide div:nth-child(2) {background-color: violet;}
+#slide div:nth-child(3) {background-color: aqua;}
+
+#mid{
+  width: 1000px;
+  height: 200px;
+  position: relative;
+}
+
+#mid>div{
+  width: 33.333333333%;
+  height: 200px;
+  background-color: beige;
+  float: left;
+}
+
+/* #mid에 display flex를 줘도 되고 >div에 float left를 줘도 됨 */
+
+#mid button{
+  width: 25%;
+  height: 30px;
+  border: 0;
+  border-radius: 50% 50% 0 0;
+  background-color: red;
+  float: left;
+}
+
+/* float는 버튼을 딱 붙이기 위해 썼음 안 쓰는 게 더 편함 */
+
+#firstbox>div{
+  width: 33.333333333333%;
+  height: 170px;
+  margin-top: 30px;
+  position: absolute;
+}
+/* 
+ button이 float상태라 margintop을 button의 height값만큼 주고
+ 겁쳐놓기 위해 position absolute를 줌, firstbox에 relative를 주면 width 100%로 해도 됨 */
+
+#notice{
+  background-color: #eee;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* flexdirection column으로 행배치를 열배치로 바꿔줌 */
+#notice p{
+  margin-bottom: 5px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#gall{
+  background-color: #999;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* z-index: 2; */
+}
+
+#gall div{
+  width: 25%;
+  height: 70%;
+  background-color: salmon;
+}
+
+/* #gall은 클래스로 zindex: -1;을 줬기 때문에 마크업 할 떈 zindex: 2;를 주고 해주세요*/
+
+/* 마크업 끝 푸터나 다른 곳은 알아서 하실 거라고 믿습니다 */

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="./연습.css">
+  <link rel="stylesheet" href="./class.css">
+</head>
+<body>
+  
+  <div id="wrap">
+
+    <header>
+
+      <div id="logo">
+        <a href="#"><img src="" alt=""></a>
+      </div>
+
+<!--                      #sub에 hidden class를 줌                 -->
+
+      <ul id="gnb">
+        <li>menu1
+          <ul id="sub" class="hidden">
+            <li><a href="#">sub</a></li>
+            <li><a href="#">sub</a></li>
+            <li><a href="#">sub</a></li>
+            <li><a href="#">sub</a></li>
+          </ul>
+        </li>
+        <li>menu2
+          <ul id="sub" class="hidden">
+            <li><a href="#">sub</a></li>
+            <li><a href="#">sub</a></li>
+            <li><a href="#">sub</a></li>
+            <li><a href="#">sub</a></li>
+          </ul>
+        </li>
+        <li>menu3
+          <ul id="sub" class="hidden">
+            <li><a href="#">sub</a></li>
+            <li><a href="#">sub</a></li>
+            <li><a href="#">sub</a></li>
+            <li><a href="#">sub</a></li>
+          </ul>
+        </li>
+        <li>menu4
+          <ul id="sub" class="hidden">
+            <li><a href="#">sub</a></li>
+            <li><a href="#">sub</a></li>
+            <li><a href="#">sub</a></li>
+            <li><a href="#">sub</a></li>
+          </ul>
+        </li>
+      </ul>
+
+
+    </header>
+    
+    <section>
+
+      <div id="slide">
+
+        <div></div>
+        <div></div>
+        <div></div>
+
+      </div>
+
+      <div id="mid">
+
+        <div id="firstbox">
+
+          <button id="noticebtn">공지사항</button>
+          <button id="gallbtn">갤러리</button>
+
+          <div id="notice">
+            <p id="poptxt">누르면 팝업 나오는 공지사항</p>
+            <p>그냥 공지사항</p>
+            <p>그냥 공지사항</p>
+            <p>그냥 공지사항</p>
+            <p>그냥 공지사항</p>
+          </div>
+          <div id="gall" class="zin-1">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <div></div>
+        <div></div>
+
+      </div>
+
+    </section>
+
+    <footer>
+
+    </footer>
+
+  </div>
+
+
+  <script>
+
+  // 팝업창은 알아서 잘 하실 것 같으니까 안 함
+
+  const $gnb = document.querySelectorAll('#gnb>li');
+  const $sub = document.querySelectorAll('#sub');
+  console.log($sub);
+
+  for(let i = 0; i < $gnb.length; i++) {
+    //겉에 있는 for문은 단순히 addEventListener를 $gnb[0]~[3]까지 반복해서 걸어주기 위함임 $gnb.length쓰기 싫으면 그냥 4 써도 됨
+    $gnb[i].addEventListener('mouseover', () => {
+      $sub[i].classList.replace('hidden','hei100');
+    })
+
+    $gnb[i].addEventListener('mouseout', () => {
+      $sub[i].classList.replace('hei100','hidden');
+    })
+    // replace(A,B)는 A클래스(현재 가지고 있는 클래스)를 B클래스(다른 클래스)로 바꿔주는 메서드
+  }
+// menu
+
+  const $noticeBtn = document.querySelector('#noticebtn');
+  const $gallBtn = document.querySelector('#gallbtn');
+  const $notice = document.querySelector('#notice');
+  const $gall = document.querySelector('#gall');
+
+  $noticeBtn.addEventListener('click', () => {
+    $notice.classList.replace('zin-1','zin2');
+    $gall.classList.replace('zin2','zin-1');
+  })
+
+  $gallBtn.addEventListener('click', () => {
+    $gall.classList.replace('zin-1','zin2');
+    $notice.classList.replace('zin2','zin-1');
+  })
+
+  //공지사항,갤러리
+
+  const $slider = document.querySelector('#slide');
+  const $slides = document.querySelectorAll('#slide > div');
+  console.log($slides);
+  // 슬라이드 안에 있는 div들을 배열안에 넣었다고 생각하면 됨
+  console.log($slides.length);
+  // 이 배열의 길이 = 3
+
+  let num = 0;
+  setInterval(() => {
+    if(num < $slides.length-1) { //-1해주는 이유 : 두번까지만 슬라이드 되라고
+      $slides[num].style.marginLeft = "-1000px"
+      num += 1;
+    } else {
+      num = 0;
+      for(let i =0; i<$slides.length; i++) {
+        $slides[i].style.marginLeft = "0";
+      }
+    }
+  }, 1000);
+
+  // 처음 로드됐을 때 첫 번쨰 슬라이드 -> 두번째 슬라이드 넘어갈 때 시간 조금 더 걸리는거 신경 쓰이면 아래처럼 쓰세요
+
+  // let num = 1;
+  // setInterval(() => {
+  //   if(num < $slides.length) {
+  //     $slides[num].style.marginLeft = "-1000px"
+  //     num += 1;
+  //   } else {
+  //     num = 1;
+  //     for(let i =0; i<$slides.length; i++) {
+  //       $slides[i].style.marginLeft = "0";
+  //     }
+  //   }
+  // }, 1000);
+
+  </script>
+</body>
+</html>
