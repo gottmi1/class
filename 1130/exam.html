@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    *{padding: 0; margin: 0; box-sizing: border-box;}
+    /* body{overflow: hidden;} */
+    section{
+      width: 100vw;
+      height: 100vh;
+    }
+
+    #dots{
+      width: 10px;
+      height: 10vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      position: fixed;
+      right: 5vw;
+      top: 45vh;
+      cursor: pointer;
+      z-index: 5;
+    }
+    #dots>div{
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .off{background-color: black;}
+
+    .on{background-color: red;}
+  </style>
+
+</head>
+<body>
+
+  <div id="dots">
+    <div class="off"></div>
+    <div class="off"></div>
+    <div class="off"></div>
+    <div class="off"></div>
+  </div>
+
+
+  <script>
+  
+  console.dir(document);
+
+  const body = document.body;
+  const $dots = document.querySelectorAll('#dots>div');
+  console.log($dots);
+  function move(X, Y) {
+    window.scrollTo( X, Y )
+  }
+
+  console.log(body.children);
+  const $sec = document.querySelectorAll('body>section')
+  console.log($sec);
+  
+
+  const colorArr = ['#ddd','#aaa','#777','#555']
+  for(i = 0; i < 4; i++) {
+    const sec = document.createElement('section');
+    sec.style.background = colorArr[i];
+    body.append(sec);
+    console.log(sec);
+  }
+  
+
+  
+
+  window.addEventListener("scroll", () => {
+    // return false;
+
+    const posY = body.getBoundingClientRect().bottom;
+    console.log(posY);
+    console.log(scrollY);
+
+    
+
+    // if (scrollY < 1000) {
+    //     $dots[0].classList.replace('off','on'); 
+    // } else {
+    //     $dots[0].classList.replace('on','off'); 
+    // }
+
+    // if (scrollY >= 1000 && scrollY < 2000) {
+    //   $dots[1].classList.replace('off','on'); 
+    // } else {
+    //   $dots[1].classList.replace('on','off'); 
+    // }
+
+    // if (scrollY >= 2000 && scrollY < 2900) {
+    //   $dots[2].classList.replace('off','on'); 
+    // } else {
+    //   $dots[2].classList.replace('on','off'); 
+    // }
+
+    // if (scrollY >= 2900 && scrollY < 4000) {
+    //   $dots[3].classList.replace('off','on'); 
+    // } else {
+    //   $dots[3].classList.replace('on','off'); 
+    // }
+      
+})
+
+  </script>
+</body>
+</html>
