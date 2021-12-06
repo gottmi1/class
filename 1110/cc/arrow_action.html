@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arrow-action</title>
+</head>
+<body>
+  <button id="Decr">Decrease</button>
+  <button id="Incr">Increase</button>
+
+  <p>1</p>
+
+  <script>
+
+    const decr = document.querySelector('#Decr');
+    console.log(decr);
+    const incr = document.querySelector('#Incr');
+    console.log(incr);
+    const p = document.querySelector('p');
+    let count = 1;
+    p.textContent = count;
+    console.log(typeof Number(p));
+    //                            초기화-------------------------------------------------
+    const incrEvent =  () =>{
+      let value = count += 1;
+      console.log(value);
+      p.textContent = count;
+    }
+    //                            증가 이벤트--------------------------------------------
+    const decrEvnet = () =>{
+      let value = count -= 1;
+      console.log(value);
+      p.textContent = count;
+    }
+    //                            감소 이벤트---------------------------------------------------
+
+    // incr.addEventListener('click' , incrEvent);
+    // decr.addEventListener('click' , decrEvnet);
+    //                            이벤트 실행----------------------------------------------------------
+
+
+    // 함수로 선언
+    function numberMaker(sel, eventType, target) {
+      sel.addEventListener(eventType, ()=>{
+        if(sel === decr) {
+          count -= 1;
+          target.textContent = count;
+        }
+        if(sel === incr) {
+          count += 1;
+          target.textContent = count;
+        }
+      })
+    }
+    // 콜링
+    numberMaker(decr,'click',p);
+    numberMaker(incr,'click',p);
+
+    // 리팩토링(좀더 동적으로 쓸 수 있을 것 같음)
+  </script>
+</body>
+</html>

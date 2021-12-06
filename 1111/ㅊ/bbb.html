@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    #item{
+      width: 100px;
+      height: 100px;
+      background-color: darkorchid;
+    }
+  </style>
+</head>
+<body>
+  
+  <div id="item"></div>
+
+  <script>
+  
+    const $item = document.querySelector('#item');
+    const transArr = ['gold', 'orange', 'silver']
+    console.log($item);
+
+
+    $item.animate(
+      [
+      {width : '400px', backgroundColor : transArr[0] , transform: 'rotate(0deg)', height : '500px' ,opacity : '0.1'},
+      {width : '1500px', backgroundColor : transArr[1] , transform: 'rotate(180deg)', height : '800px', opacity : '1'},
+      {width : '700px', backgroundColor: transArr[2], transform: 'rotate(360deg)', height : '300px', opacity : '0'}
+    ],{
+      duration : 1300,
+      iterations: Infinity
+    }
+    );
+
+    
+    const func = () => {
+      return() => {
+        console.log('hello');
+      }
+    }
+
+    // 얕은복사, 깊은복사
+
+    const innerFunc = func();
+    innerFunc();
+    func();
+
+
+  </script>
+</body>
+</html>

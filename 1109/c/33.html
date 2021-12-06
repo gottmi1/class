@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div style="background-color: blueviolet;"></div>
+  <!-- div의 기본 백그라운드 컬러를 설정해주었다 -->
+
+  <script>
+
+    const div = document.querySelector('div');
+    // div 초기화
+    let value = 200;
+    // 변수 value를 설정하였따
+    div.style.width = value + 'px';
+    div.style.height = value + 'px';
+    // div의 style에 value값에 해당하는 넓이와 높이를 주었다.
+
+    function DSE(querySelector, changeSize, changeColor) {
+      // 세가지 매개변수를 받는 함수를 만들었다(매개변수는 함수 안에서 사용해주면 됨)
+      const timer = setInterval(function() {
+        // setInterval 선언
+        value -= changeSize;
+        // 전역변수 value에 해당 함수의 두번째 매개변수이자 지역함수인 changeSize를 뺸값을 대입
+        div.style.width = value + "px";
+        div.style.height = value + "px";
+        // 그리고 그 값을 현재 div의 style에 대입
+        console.log(value);
+
+        if (value <= 100) {
+          querySelector.style.marginLeft = changeSize + "px";
+        }
+
+        if (value <= 0) {
+          clearInterval(timer);
+        }
+      
+      }, 300)
+    }
+
+    DSE(div, 20, 'red');
+
+
+  </script>
+</body>
+</html>

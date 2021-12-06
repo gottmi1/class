@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    #btn{
+      width: 200px;
+      height: 30px;
+      text-align: center;
+    }
+
+    div{
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 30%;
+      background-color: darkorchid;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+    }
+    p{
+      /* display: none; */
+      font-size: 0.5rem;
+      text-align: center;
+    }
+  </style>
+  
+</head>
+
+<body>
+
+  <input id="btn" type="button" value="눌러">
+  <div><p>말풍선 <br> 입니다</p></div>
+  <input id="btn2" type="button" value="눌러">
+  <input id="btn3" type="button" value="눌러">
+  <input id="btn4" type="button" value="눌러">
+  <input id="btn5" type="button" value="눌러">
+
+  <script>
+
+    // const $p = document.createElement('p');
+
+    // const textNode = document.createTextNode('안녕?');
+    const $btn = document.querySelector('#btn');
+    const $btn2 = document.querySelector('#btn2');
+    const $btn3 = document.querySelector('#btn3');
+    const $btn4 = document.querySelector('#btn4');
+    const $btn5 = document.querySelector('#btn5');
+    const $p = document.querySelector('p');
+    const $div = document.querySelector('div');
+
+    $btn.addEventListener('click',() => {
+      if ($div.style.opacity == 0) {
+      $div.animate(
+      [
+      // {width : '100px',  height : '100px' , transform: 'rotate(0deg)',opacity : '0'},
+      {width : '500px',  height : '500px' , transform: 'rotate(0deg)',opacity : '1'}
+    ],{
+      duration : 2500,
+      fill : "both"
+    }
+    )
+    $p.animate([
+          // {fontSize : "0.5rem"},
+          {fontSize : "3rem"}
+        ],{
+          duration : 2500,
+          fill : "both"
+        }) }
+    }
+    )
+
+    $btn2.addEventListener('click', () =>{
+      // if ($div.style.opacity == 1) {
+        $div.animate([
+        {top : "500px"}
+        ],{
+          duration : 1500,
+          fill : "both"
+        })
+         
+      // }
+    }
+    )
+    $btn3.addEventListener('click', () =>{
+      // if ($div.style.opacity == 1) {
+        $div.animate([
+        {left : "60%"}
+        ],{
+          duration : 1500,
+          fill : "both"
+        })  
+      // }
+    }
+    )
+    
+    $btn4.addEventListener('click', () =>{
+      // if ($div.style.opacity == 1) {
+        $div.animate([
+        {top : "0px"}
+        ],{
+          duration : 1500,
+          fill : "both"
+        })  
+      // }
+    }
+    )
+    $btn5.addEventListener('click', () =>{
+      // if ($div.style.opacity == 1) {
+        $div.animate([
+        {left : "30%"}
+        ],{
+          duration : 1500,
+          fill : "both"
+        })  
+      // }
+    }
+    )
+
+    // const $box = document.createElement('div');
+
+    // console.log($box);
+    // console.log($btn);
+    // console.dir($p);
+    // console.log(textNode);
+    // $p.appendChild(textNode);
+    // console.log($p);
+
+    // $box.style.width = "300px";
+    // $box.style.hieght = "300px";
+    // $box.style.backgroundColor = "red";
+    // $box.style.borderRadius = "50%";
+    
+
+  </script>
+  
+</body>
+</html>

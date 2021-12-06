@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function parallax(el, distance, speed) {
+  		const item = document.querySelector(el);
+  		item.style.transform = `translateY(${distance * speed}px)`;
+		}
+
+		window.addEventListener('scroll', function(){
+  		parallax('header', window.scrollY, 1);
+  		parallax('.small-cherry', window.scrollY, 0.2);
+  		parallax('.cherry', window.scrollY, 0.1);
+		});
+	</script>
+</body>
+</html>

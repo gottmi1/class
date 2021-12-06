@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+
+    ul,li{list-style-type: none;}
+    body{
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+  <li class="listItem">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem odio necessitatibus, aut est qui cumque veniam iste asperiores repellendus eligendi, nisi sint perspiciatis neque, omnis illo! Reiciendis tempore illum repellendus.</li>
+  <li class="listItem">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos repellat maiores perferendis tenetur voluptatum nostrum omnis eligendi ratione deserunt ducimus. Culpa deserunt autem obcaecati officiis qui veritatis excepturi at ab.</li>
+  <li class="listItem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic aliquid voluptatum animi magni minus dolorum rerum blanditiis, sapiente maxime sequi magnam fugit earum enim omnis velit quasi illo itaque quae?</li>
+  <li class="listItem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod dolore maxime distinctio a, exercitationem autem repellat? Aut numquam, molestiae atque corporis maiores, delectus sapiente perferendis a adipisci ab quod laudantium.</li>
+  <li class="listItem">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta voluptate, ipsam repudiandae vel asperiores reprehenderit unde illum iure saepe quaerat? Veniam, provident? Architecto accusantium corporis neque libero, illum hic nisi?</li>
+  <li class="listItem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt architecto eius veniam quos eum animi quam fuga expedita doloribus neque blanditiis optio atque et, omnis sunt, quae error distinctio repudiandae.</li>
+  </ul>
+
+  <script>
+    const ulTag = document.querySelector('ul');
+    const list = document.querySelectorAll('.listItem');
+    
+    console.log(ulTag);
+    console.dir(list);
+    console.dir(ulTag.style);
+
+    ulTag.style.textAlign ="center";
+    ulTag.style.fontSize = "1.5em";
+    ulTag.style.lineHeight = "2rem";
+
+
+    let liTagArr = [];
+    console.log(liTagArr);
+    for(let i = 0; i<list.length; i++) {
+      liTagArr.push(list[i]);
+      liTagArr[i].style.display = "none";
+    }
+    // list의 길이만큼의 요소를 liTagArr에 넣어주고 display none함
+    console.log(liTagArr);
+
+    let colorArr = ['red', 'blue', 'orange','yellow','black','violet'];
+    let idx = 0;
+    const textTpying = setInterval(() =>{
+      if(idx < liTagArr.length) {
+        liTagArr[idx].style.display = "list-item";
+        liTagArr[idx].style.color = colorArr[idx];
+        idx += 1;
+      } else {
+        clearInterval(textTpying);
+      }
+      if(idx === 3) {
+        liTagArr[idx].style.backgroundColor = "black";
+      }
+    }, 2000)
+        
+
+    //liTagArr처럼 끝이 있는 것에 클리어인터벌을 굳이 사용할 필요가 있는지
+  </script>
+</body>
+</html>

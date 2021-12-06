@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div style="position: absolute; left: 5%; width: 100px; height: 100px; background-color: aquamarine;"></div>
+
+  <script>
+
+    const div = document.querySelector('div');
+    console.log(div);
+    console.dir(div);
+    console.log(div.style.width);
+
+    // setInterval(function(){
+    //   leftValue += 0.0001;
+    //   div.style.left = leftValue + "%";
+    //   console.log(div.style.left);
+
+    // }, 16000)
+
+    let value = 100;
+    // value에 div의 크기와 같은 값을 입력
+    timer = setInterval(() => {
+      value -= 10;
+      // 한 번 실행마다 value - 10을 실행
+      div.style.width = value + "px";
+      div.style.height = value + "px";
+      // 실행마다 위에 실행한 값을 받아와서 width와 height에 넣어줌
+      console.log(div.style.width);
+      console.log(div.style.height);
+
+      if(value <= 50) {
+        div.style.backgroundColor = "black";
+      } 
+
+      if(value == 0) {
+        clearInterval(timer);
+      }
+      // 반복하는 도중 value값이 0이 되었다면 반복을 멈추겠다는 뜻
+    }, 300);
+    //위 함수를 300ms마다 반복
+    // clearInterval은 setInterval안에 if문으로 멈출 값을 지정해주면 멈출 수 있음
+
+  </script>
+
+</body>
+</html>

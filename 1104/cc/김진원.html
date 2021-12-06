@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    *{
+      padding: 0; margin: 0; box-sizing: border-box;
+    }
+
+    section{
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+    }
+
+    .flex{
+      flex: 0 0 100vw;
+    }
+
+    #div1{
+      width: 100vw;
+      height: 100vh;
+      background-color: aquamarine;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #div2{
+      width: 100vw;
+      height: 100vh;
+      background-color: lightskyblue;
+    }
+    #div3{
+      width: 100vw;
+      height: 100vh;
+      background-color: mediumturquoise;
+    }
+
+    h1{
+      font-size: 4em;
+    }
+
+    .nowrap{
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+
+<body>
+  
+  <section id="sec">
+  <div id="div1"><h1>main</h1></div>
+  <div id="div2"></div>
+  <div id="div3"></div>
+  </section>
+
+
+  <script>
+    const cliValue = document.body.clientWidth;
+    console.log(cliValue);
+
+    const sec = document.querySelector('section')
+    const div1 = document.getElementById('div1');
+    const div2 = document.getElementById('div2');
+    const div3 = document.getElementById('div3');
+
+    window.addEventListener('resize' , ()=>{
+      // 지금은 한 번 바뀌면 새로고침 해주기 전까진 안 바뀌는데 바꿀 수 있는 방법이 있는지
+    if(cliValue > 1400 ) {
+      sec.classList.add('nowrap');
+      div1.classList.add('flex');
+      div2.classList.add('flex');
+      div3.classList.add('flex');
+    } else if (cliValue <= 800) {
+      div1.style.height = "33.3vh";
+      div2.style.height = "33.3vh";
+      div3.style.height = "33.3vh";
+    }
+    })
+
+    // 워치는 어떻게 해야할 지 모르겠음
+    
+  </script>
+</body>
+</html>

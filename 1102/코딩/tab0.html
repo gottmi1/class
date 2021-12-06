@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+		html,body,ul,li{
+			margin: 0;
+			padding: 0;
+			/* box-sizing: border-box; */
+		}
+
+		#tabmenu-button li{
+			display: inline-block;
+			width: 200px;
+			height: 50px;
+			background-color: beige;
+			text-align: center;
+		}
+
+		#tabmenu-button li:hover{
+			background-color: black;
+			color: aliceblue;
+		}
+		/* 인라인 블럭을 딱 붙이기 위해 사용하는 듯 함 */
+		#tabmenu-button li:nth-child(1){
+			float: left;
+		}		
+
+		#tabmenu-1-contant,
+		#tabmenu-2-contant{
+			width: 400px;
+			border: 1px solid burlywood;
+		}
+
+		.hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 탭메뉴 전체를 핸들링 하기위한 컨테이너 태그 #tabmenu -->
+  <div id="tabmenu">
+
+    <ul id="tabmenu-button">
+      <li>탭메뉴버튼-1</li>
+      <li>탭메뉴버튼-2</li>
+    </ul>
+
+    <ul id="tabmenu-1-contant" class="hidden">
+      <li>탭메뉴-1 컨텐츠내용</li>
+      <li>탭메뉴-1 컨텐츠내용</li>
+      <li>탭메뉴-1 컨텐츠내용</li>
+      <li>탭메뉴-1 컨텐츠내용</li>
+      <li>탭메뉴-1 컨텐츠내용</li>
+    </ul>
+
+    <ul id="tabmenu-2-contant" class="hidden">
+      <li>탭메뉴-2 컨텐츠내용</li>
+      <li>탭메뉴-2 컨텐츠내용</li>
+      <li>탭메뉴-2 컨텐츠내용</li>
+      <li>탭메뉴-2 컨텐츠내용</li>
+      <li>탭메뉴-2 컨텐츠내용</li>
+    </ul>
+
+  </div>
+
+  <script>
+
+		const tabOne = document.querySelector('#tabmenu-button li:nth-child(1)');
+		const tabTwo = document.querySelector('#tabmenu-button li:nth-child(2)');
+		const conOne = document.getElementById('tabmenu-1-contant');
+		const conTwo = document.getElementById('tabmenu-2-contant');
+		// 탭메뉴 원에 이벤트를 추가. 클릭시 탭메뉴원콘텐츠에 .hidden을 주고 투에선 hidden을 뺌
+		tabOne.addEventListener('click', ()=>{
+			conOne.classList.remove('hidden');
+			conTwo.classList.add('hidden');
+			conOne.style.background = 'black';
+			conOne.style.color = 'white';
+		})
+		//  탭메뉴 투에 이벤트를 추가, 알고리즘은 위와 반대
+		tabTwo.addEventListener('click', ()=>{
+			conTwo.classList.remove('hidden');
+			conOne.classList.add('hidden');
+			conTwo.style.background = 'red';
+			conTwo.style.color = 'gold';
+		})
+
+
+  </script>
+
+</body>
+
+</html>
